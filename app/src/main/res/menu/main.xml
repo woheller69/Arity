@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/list_defs" android:title="User definitions" />
+  <item android:id="@+id/clear_history" android:title="Clear history" />
+  <!-- <item android:id="@+id/clear_defs" android:title="Clear definitions" /> -->
+  <item android:id="@+id/settings" android:title="Settings" />
+  <item android:id="@+id/help" android:title="Help" />
+</menu>

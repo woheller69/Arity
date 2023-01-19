@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   package="arity.calculator">
+
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="Arity" android:icon="@drawable/icon" >
+    <activity android:name="Calculator"
+        android:theme="@style/AppTheme"
+              android:configChanges="orientation|keyboard|keyboardHidden"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name="ShowGraph" android:theme="@style/AppTheme" />
+
+    <activity android:name="ListDefs" android:label="User definitions" />
+    <activity android:name="Help" android:label="Arity Calculator" />
+    <activity android:name="Settings" android:label="Calculator settings" />
+  </application>
+</manifest> 

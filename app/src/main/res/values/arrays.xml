@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+<array name="quality_entries"> 
+    <item>High quality, slower</item> 
+    <item>Low quality, faster</item> 
+</array>
+<array name="quality_values">
+    <item>high</item>
+    <item>low</item>
+</array>
+</resources>
