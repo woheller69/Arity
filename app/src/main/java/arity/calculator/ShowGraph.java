@@ -2,7 +2,9 @@
 
 package arity.calculator;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.javia.arity.Function;
 import java.util.ArrayList;
@@ -67,6 +71,12 @@ public class ShowGraph extends AppCompatActivity {
         super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
         case R.id.capture_screenshot:
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        111);
+            }
             String fileName = view.captureScreenshot();
             if (fileName != null) {
                 Toast.makeText(this, "screenshot saved as \n" + fileName, Toast.LENGTH_LONG).show();
