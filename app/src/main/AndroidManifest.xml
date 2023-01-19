@@ -4,7 +4,12 @@
    package="arity.calculator">
 
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="Arity" android:icon="@drawable/icon" >
+
+  <application
+      android:label="Arity"
+      android:icon="@drawable/icon"
+      android:requestLegacyExternalStorage="true">
+
     <activity android:name="Calculator"
         android:theme="@style/AppTheme"
               android:configChanges="orientation|keyboard|keyboardHidden"
@@ -14,7 +19,10 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name="ShowGraph" android:theme="@style/AppTheme" />
+    <activity
+        android:name="ShowGraph"
+        android:theme="@style/AppTheme"
+        android:parentActivityName=".Calculator"/>
 
     <activity android:name="ListDefs" android:label="User definitions" />
     <activity android:name="Help" android:label="Arity Calculator" />

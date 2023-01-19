@@ -12,12 +12,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.javia.arity.Function;
 import java.util.ArrayList;
 import java.io.File;
 import arity.calculator.R;
 
-public class ShowGraph extends Activity {
+public class ShowGraph extends AppCompatActivity {
     private Grapher view;
     private GraphView graphView;
 
@@ -38,6 +41,10 @@ public class ShowGraph extends Activity {
             ((GraphView) view).setFunctions(funcs);
         }
         setContentView((View) view);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     protected void onPause() {
@@ -63,9 +70,6 @@ public class ShowGraph extends Activity {
             String fileName = view.captureScreenshot();
             if (fileName != null) {
                 Toast.makeText(this, "screenshot saved as \n" + fileName, Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setDataAndType(Uri.fromFile(new File(fileName)), "image/png");
-                startActivity(i);
             }
             break;
 

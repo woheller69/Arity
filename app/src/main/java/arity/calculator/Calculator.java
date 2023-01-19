@@ -35,7 +35,7 @@ import arity.calculator.R;
 import org.javia.arity.Util;
 import org.javia.arity.*;
 
-public class Calculator extends Activity implements TextWatcher,
+public class Calculator extends AppCompatActivity implements TextWatcher,
 						    View.OnKeyListener,
                                                     View.OnClickListener,
 						    AdapterView.OnItemClickListener,

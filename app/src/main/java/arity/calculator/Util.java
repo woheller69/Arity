@@ -2,6 +2,8 @@
 
 package arity.calculator;
 
+import static android.os.Environment.DIRECTORY_PICTURES;
+
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.Build;
@@ -23,8 +25,8 @@ class Util {
 
     static String saveBitmap(Bitmap bitmap, String dir, String baseName) {
         try {
-            File sdcard = Environment.getExternalStorageDirectory();
-            File pictureDir = new File(sdcard, dir);
+            File path = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES);
+            File pictureDir = new File(path, dir);
             pictureDir.mkdirs();
             File f = null;
             for (int i = 1; i < 200; ++i) {

@@ -1,0 +1,119 @@
+<html>
+<body>
+<h2>Sample expressions</h2>
+<ul>
+<li>simple expression: <em>1+2</em>
+<li>variable evaluation: <em>pi</em>
+<li>function evaluation: <em>sin(0)</em>
+<li>variable definition: <em>a=3.5</em>
+<li>function definition: <em>f(x)=x^2-1</em>
+<li>parentheses: <em>(1-x)^2</em>
+</ul>
+
+To enter an expression cointaining letters, such as <em>sin(x)</em>, use the &#x21f3; key on the basic keypad. It toggles opened/closed the letter keypad.
+
+<h2>Predefined functions</h2>
+
+<h3>Logarithms and power</h3>
+<ul>
+<li>sqrt(x): square root; x^0.5
+<li>cbrt(x): cube root; x^(1/3)
+<li>exp(x): exponential; e^x
+<li>log(x), ln(x): natural logarithm
+<li>log2(x), lb(x): binary logarithm
+<li>log10(x), lg(x): decimal logarithm
+<li>log(base,x): arbitrary base logarithm
+</ul>
+
+<h3>Trigonometric - radians</h3>
+<ul>
+<li>sin(x), cos(x), tan(x)</li>
+<li>asin(x), acos(x), atan(x)</li>
+</ul>
+
+<h3>Trigonometric - degrees</h3>
+<ul>
+<li>sind(x), cosd(x), tand(x)</li>
+<li>asind(x), acosd(x), atand(x)</li>
+</ul>
+
+<h3>Hyperbolic</h3>
+<ul>
+<li>sinh(x), cosh(x), tanh(x)</li>
+<li>asinh(x), acosh(x), atanh(x)</li>
+</ul>
+
+<h3>Other</h3>
+<ul>
+<li>gcd(x,y): greatest common divisor
+<li>comb(n,k): combinations
+<li>perm(n,k): permutations
+<li>min(x,y), max(x,y)
+<li>floor(x), ceil(x)
+<li>abs(x): absolute value
+<li>sign(x): signum
+<li>rnd(): random value from [0,1). rnd(max): random value from [0, max).
+<li>gamma(x): (x-1)!
+<li>mod(x,y): modulo
+</ul>
+
+<h2>Complex numbers</h2>
+<em>i</em> or <em>j</em> is the complex base. Example:
+<ul>
+<li>i*i
+<li>(1+i)^2
+<li>e^(i*pi)
+</ul>
+
+<h2>Operators</h2>
+<ul>
+<li><em>+ - &#x00d7; &#x00f7;</em> basic arithmetic
+<li><em>^</em> power
+<li><em>%</em> percent
+<li><em>!</em> factorial
+<li><em>#</em> modulo
+<li><em>&#x221a;</em> square root
+<li><em>'</em> first derivative
+</ul>
+
+<h2>Tips</h2>
+<ul>
+<li>Parentheses: you may omit the leading or final parentheses, e.g. <em>1+2)(3+4</em> is valid.
+<li>Multiplication: you may omit the multiplication operator when unambiguous, e.g. <em>3&#x03c0;+2(1+2)</em> 
+<li>Expression continuation: starting a new expression with an operator auto-inserts <em>ans</em>, 
+the result of the last expression.
+<li>Clear: use the <em>Enter</em> key to quickly erase the whole input line.
+<li>Scientific e notation: <em>1e3</em> is 1000.
+<li>Angles in degrees instead of radians: use either <em>sind(90)</em> or <em>sin(90deg)</em>.
+<li>Use trackball Up/Down to navigate the history.
+</ul>
+
+<h2>Derivative</h2>
+It is possible to compute the first derivative of a function with one argument 
+using the prime notation: <em>log'(5)</em>.
+<p>
+The prime mark (quote) must appear immediately after the name of the function, 
+and must be followed by open-parentheses.
+<p>
+The derivative may be plotted e.g. <em>sqrt'(x)</em>.
+<p>
+To compute the derivative of an expression you must define the expression as a named function:
+E.g. <em>f(x)=x^3+x^2+1</em>, followed by <em>f'(x)</em>.
+
+<h2>Multi plot</h2>
+To plot multiple functions on the same 2d graph, simply enter them on the same line separated by ";".
+E.g. <em>x;x^2;2</em>
+
+<h2>Binary, octal, hexadecimal</h2>
+You can enter values in binary, octal or hexadecimal by prefixing them with <em>0b</em>, <em>0o</em> or <em>0x</em> respectivelly, such as:
+<ul>
+<li>binary: 0b1010
+<li>octal: 0o17
+<li>hexa: 0x100
+</ul>
+Right now it is not possible to do the reverse operation, i.e. display a result in a non-decimal base.
+
+<h2>About</h2>
+Arity Calculator was written by Mihai Preda, and is open source. It uses the "Arity" arithmetic library. Enjoy!
+</body>
+</html>
