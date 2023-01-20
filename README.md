@@ -4,7 +4,7 @@
 # Arity
 Scientific calculator with complex numbers and graphing of user-defined functions. 
 
-This is an updated fork from 
+This is an updated (Android 12, SDK 32) fork from 
 
 https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://arity-calculator.googlecode.com/hg/
 
