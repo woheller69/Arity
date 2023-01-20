@@ -95,7 +95,7 @@ public class GraphView extends View implements
     public String captureScreenshot() {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);
-        onDraw(canvas);
+        draw(canvas);
         return Util.saveBitmap(bitmap, Grapher.SCREENSHOT_DIR, "calculator");
     }
 

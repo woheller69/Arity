@@ -2,14 +2,10 @@
   
 package arity.calculator;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.text.TextWatcher;
 import android.text.Editable;
@@ -19,18 +15,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.util.Log;
-import android.content.res.Resources;
 import android.content.res.Configuration;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
-
-import arity.calculator.R;
 
 import org.javia.arity.Util;
 import org.javia.arity.*;
