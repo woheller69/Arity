@@ -23,9 +23,20 @@
         android:name="ShowGraph"
         android:theme="@style/AppTheme"
         android:parentActivityName=".Calculator"/>
-
-    <activity android:name="ListDefs" android:label="User definitions" />
-    <activity android:name="Help" android:label="Arity Calculator" />
-    <activity android:name="Settings" android:label="Calculator settings" />
+    <activity
+        android:name="ListDefs"
+        android:theme="@style/AppTheme"
+        android:label="User definitions"
+        android:parentActivityName=".Calculator"/>
+    <activity
+        android:name="Help"
+        android:theme="@style/AppTheme"
+        android:label="Arity Calculator"
+        android:parentActivityName=".Calculator"/>
+    <activity
+        android:name="Settings"
+        android:theme="@style/AppTheme"
+        android:label="Calculator settings"
+        android:parentActivityName=".Calculator"/>
   </application>
 </manifest> 

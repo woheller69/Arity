@@ -6,11 +6,18 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-public class Help extends Activity {
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Help extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         WebView view = new WebView(this);
         setContentView(view);
         view.loadUrl("file:///android_asset/help.html");
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }   
 }

@@ -2,24 +2,31 @@
 
 package arity.calculator;
 
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-import arity.calculator.R;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ListDefs extends ListActivity {
+public class ListDefs extends AppCompatActivity {
     private Defs defs;
     private ArrayAdapter adapter;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.listdefs);
         defs = Calculator.defs;
+        ListView mListView = (ListView)findViewById(R.id.my_listview);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, defs.lines);        
-        setListAdapter(adapter);
+        mListView.setAdapter(adapter);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,4 +56,5 @@ public class ListDefs extends ListActivity {
         }
         return true;
     }
+
 }
