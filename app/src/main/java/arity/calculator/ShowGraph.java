@@ -3,15 +3,12 @@
 package arity.calculator;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -21,8 +18,6 @@ import androidx.core.content.ContextCompat;
 
 import org.javia.arity.Function;
 import java.util.ArrayList;
-import java.io.File;
-import arity.calculator.R;
 
 public class ShowGraph extends AppCompatActivity {
     private Grapher view;

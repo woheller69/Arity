@@ -10,7 +10,6 @@ import android.content.Context;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import arity.calculator.R;
 
 class HistoryAdapter extends BaseAdapter {
     private LayoutInflater inflater;

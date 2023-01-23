@@ -4,25 +4,15 @@ package arity.calculator;
 
 import android.view.View;
 import android.view.MotionEvent;
-import android.widget.TextView;
-import android.widget.EditText;
 import android.content.Context;
-import android.text.Editable;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Path;
-import android.graphics.Region;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
 import android.util.AttributeSet;
-import android.util.Log;
-import arity.calculator.R;
 
 public class KeyboardView extends View {
     private char[][] keys;

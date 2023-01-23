@@ -4,37 +4,18 @@ package arity.calculator;
 
 import android.view.View;
 import android.view.MotionEvent;
-import android.view.VelocityTracker;
-
-import android.widget.TextView;
-import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.ZoomButtonsController;
 
 import android.content.Context;
-import android.text.Editable;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Path;
-import android.graphics.Region;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.Bitmap;
-
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
-import android.os.Build;
 
 import android.util.AttributeSet;
-
-import android.util.Log;
-import arity.calculator.R;
 
 import org.javia.arity.*;
 

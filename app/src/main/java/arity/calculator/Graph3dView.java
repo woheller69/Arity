@@ -4,7 +4,6 @@ package arity.calculator;
 
 import android.content.Context;
 import android.view.MotionEvent;
-import android.view.VelocityTracker;
 import android.widget.ZoomButtonsController;
 import android.util.AttributeSet;
 import org.javia.arity.Function;
@@ -12,8 +11,6 @@ import org.javia.arity.Function;
 import android.opengl.Matrix;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
-import javax.microedition.khronos.egl.EGLConfig;
-import org.javia.arity.Function;
 
 public class Graph3dView extends GLView implements
         Grapher, ZoomButtonsController.OnZoomListener,
