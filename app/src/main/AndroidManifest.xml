@@ -13,7 +13,7 @@
 
     <activity android:name="Calculator"
         android:theme="@style/AppTheme"
-              android:configChanges="orientation|keyboard|keyboardHidden"
+        android:configChanges="orientation|keyboard|keyboardHidden"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
