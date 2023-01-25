@@ -5,6 +5,7 @@ package arity.calculator;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.Layout;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -126,12 +127,12 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             float x = motionEvent.getX() + input.getScrollX();
             int offset = layout.getOffsetForHorizontal(0, x);
             input.setSelection(offset);
-            return false;
+            return true;  //return true to make sure the touch event is consumed and will not be used to open the soft-keyboard
         });
         input.setOnKeyListener(this);
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());            
-        input.setInputType(0);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);  //With InputType 0 the cursor vanishes
 	    changeInput(history.getText());
         if (oldText != null) {
             input.setText(oldText);
