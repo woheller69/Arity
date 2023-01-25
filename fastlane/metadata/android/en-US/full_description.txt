@@ -1,0 +1,9 @@
+Scientific calculator with complex numbers and 2D/3D graphing of user-defined
+functions.
+
+- Complex numbers
+- Binary, octal, hexadecimal numbers
+- Animated 3D graphing
+- Graphing multiple 2D function on a single graph
+- Graphing of derivatives for 2D functions
+- Screenshots of the graphs

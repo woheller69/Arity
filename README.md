@@ -4,6 +4,8 @@
 # Arity
 Scientific calculator with complex numbers and graphing of user-defined functions. 
 
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01.png" width="150"/> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02.png" width="150"/>  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03.png" width="150"/>  
+
 This is an updated (Android 12, SDK 32) fork from 
 
 https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://arity-calculator.googlecode.com/hg/

@@ -2,7 +2,10 @@
   
 package arity.calculator;
 
+import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -93,6 +96,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         internalConfigChange(config);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void internalConfigChange(Configuration config) {
         setContentView(R.layout.main);  
         graphView = (GraphView) findViewById(R.id.graph);
@@ -117,11 +121,18 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
         Editable oldText = input != null ? input.getText() : null;
         input  = (EditText) findViewById(R.id.input);
+        input.setOnTouchListener((view, motionEvent) -> {
+            Layout layout = ((EditText) view).getLayout();
+            float x = motionEvent.getX() + input.getScrollX();
+            int offset = layout.getOffsetForHorizontal(0, x);
+            input.setSelection(offset);
+            return false;
+        });
         input.setOnKeyListener(this);
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());            
         input.setInputType(0);
-	changeInput(history.getText());
+	    changeInput(history.getText());
         if (oldText != null) {
             input.setText(oldText);
         }
@@ -220,6 +231,9 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
         case R.id.settings:
             startActivity(new Intent(this, Settings.class));
+            break;
+        case R.id.about:
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/Arity")));
             break;
 
 	default:
@@ -550,5 +564,5 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         input.dispatchKeyEvent(KEY_DEL);
     }
 
-    
+
 }
