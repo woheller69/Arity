@@ -177,6 +177,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         } else {
             useHighQuality3d = value.equals("high");   
         }
+        if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this,"https://github.com/woheller69/Arity");
     }
     
     public void onPause() {
