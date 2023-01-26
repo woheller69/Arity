@@ -13,7 +13,7 @@ import javax.microedition.khronos.opengles.GL11;
 import org.javia.arity.*;
 
 class Graph3d {
-    private final int N = Calculator.useHighQuality3d ? 36 : 24;
+    private final int N = Calculator.resolution3D;
     private ShortBuffer verticeIdx;
     private FloatBuffer vertexBuf;
     private ByteBuffer colorBuf;
@@ -79,7 +79,7 @@ class Graph3d {
     }
 
     public void update(GL11 gl, Function f, float zoom) {
-        final int NTICK = Calculator.useHighQuality3d ? 5 : 0;
+        final int NTICK = Calculator.useSmoothShading3D ? 5 : 0;
         final float size = 4*zoom;
         final float minX = -size, maxX = size, minY = -size, maxY = size;
 

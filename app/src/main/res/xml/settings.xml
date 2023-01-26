@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference 
-         android:key="quality"
-         android:title="3D quality"
-         android:entries="@array/quality_entries"
-         android:entryValues="@array/quality_values"
-         />
+    <ListPreference
+        android:key="3d_shading"
+        android:title="3D Shading"
+        android:defaultValue="smooth"
+        android:entries="@array/shading_entries"
+        android:entryValues="@array/shading_values"
+        />
+
+    <ListPreference
+        android:key="3d_resolution"
+        android:title="3D Resolution"
+        android:defaultValue="72"
+        android:entries="@array/resolution_entries"
+        android:entryValues="@array/resolution_values"
+        />
 </PreferenceScreen>

@@ -16,7 +16,7 @@ It uses the Arity library from here:
 
 https://github.com/Xlythe/Arity
 
-Both are published under Apache License 2.0 license, Copyright (C) 2007-2009 Mihai Preda
+Both are published under Apache License 2.0 license, Copyright (C) 2007-2010 Mihai Preda
 
 ## Try my other apps
 

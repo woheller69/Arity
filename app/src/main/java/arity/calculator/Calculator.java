@@ -61,7 +61,8 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     static ArrayList<Function> graphedFunction;
     static Defs defs;
     private ArrayList<Function> auxFuncs = new ArrayList<Function>();
-    static boolean useHighQuality3d = true;
+    static boolean useSmoothShading3D = true;
+    static int resolution3D = 72;
 
     private static final char[][] ALPHA = {
         {'q', 'w', '=', ',', ';', SQRT, '!', '\''},
@@ -170,13 +171,10 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 	}
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
-        String value = prefs.getString("quality", null);
-        if (value == null) {
-            useHighQuality3d = arity.calculator.Util.SDK_VERSION >= 5;
-            prefs.edit().putString("quality", useHighQuality3d ? "high" : "low").commit();
-        } else {
-            useHighQuality3d = value.equals("high");   
-        }
+        String value = prefs.getString("3d_shading", "smooth");
+        useSmoothShading3D = value.equals("smooth");
+        resolution3D = Integer.parseInt(prefs.getString("3d_resolution","72"));
+
         if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this,"https://github.com/woheller69/Arity");
     }
     
@@ -246,9 +244,11 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
     //OnSharedPreferenceChangeListener
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {       
-        if (key.equals("quality")) {
-            useHighQuality3d = prefs.getString(key, "high").equals("high");
+        if (key.equals("3d_shading")) {
+            useSmoothShading3D = prefs.getString(key, "smooth").equals("smooth");
             // Calculator.log("useHigh quality changed to " + useHighQuality3d);
+        } else if (key.equals("3d_resolution")){
+            resolution3D = Integer.parseInt(prefs.getString("3d_resolution","72"));
         }
     }
 

@@ -171,7 +171,7 @@ public class Graph3dView extends GLView implements
         gl.glDisable(GL10.GL_DITHER);
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);               
         gl.glClearColor(0, 0, 0, 1);
-        gl.glShadeModel(Calculator.useHighQuality3d ? GL10.GL_SMOOTH : GL10.GL_FLAT);
+        gl.glShadeModel(Calculator.useSmoothShading3D ? GL10.GL_SMOOTH : GL10.GL_FLAT);
         gl.glDisable(GL10.GL_LIGHTING);
         graph = new Graph3d((GL11) gl);
         isDirty = true;

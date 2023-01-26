@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources> 
-<array name="quality_entries"> 
-    <item>High quality, slower</item> 
-    <item>Low quality, faster</item> 
-</array>
-<array name="quality_values">
-    <item>high</item>
-    <item>low</item>
-</array>
+<resources>
+    <array name="shading_entries">
+        <item>Smooth, slower</item>
+        <item>Flat, faster</item>
+    </array>
+    <array name="shading_values">
+        <item>smooth</item>
+        <item>flat</item>
+    </array>
+
+    <array name="resolution_entries">
+        <item>"144 x 144"</item>
+        <item>"72 x 72"</item>
+        <item>"36 x 36"</item>
+        <item>"24 x 24"</item>
+    </array>
+    <array name="resolution_values">
+        <item>"144"</item>
+        <item>"72"</item>
+        <item>"36"</item>
+        <item>"24"</item>
+    </array>
 </resources>
