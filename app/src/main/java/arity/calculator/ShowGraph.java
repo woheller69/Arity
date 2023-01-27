@@ -5,13 +5,17 @@ package arity.calculator;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -21,7 +25,6 @@ import java.util.ArrayList;
 
 public class ShowGraph extends AppCompatActivity {
     private Grapher view;
-    private GraphView graphView;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -77,7 +80,42 @@ public class ShowGraph extends AppCompatActivity {
                 Toast.makeText(this, "screenshot saved as \n" + fileName, Toast.LENGTH_LONG).show();
             }
             break;
+            case R.id.set_center:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Set center coordinates");
 
+                final EditText centerX = new EditText(this);
+                centerX.setHint("X");
+                final EditText centerY = new EditText(this);
+                centerY.setHint("Y");
+
+                centerX.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
+                centerY.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
+
+                LinearLayout lay = new LinearLayout(this);
+                lay.setOrientation(LinearLayout.VERTICAL);
+                lay.addView(centerX);
+                lay.addView(centerY);
+                builder.setView(lay);
+
+                builder.setPositiveButton(getString(android.R.string.ok), (dialog, whichButton) -> {
+                    float cx = 0;
+                    float cy = 0;
+                    if (!centerX.getText().toString().equals("")) cx = Float.parseFloat(centerX.getText().toString());
+                    if (!centerY.getText().toString().equals("")) cy = Float.parseFloat(centerY.getText().toString());
+                    if (view.getClass().equals(Graph3dView.class)){
+                        Graph3d.setCenterX(cx);
+                        Graph3d.setCenterY(cy);
+                    } else {
+                        GraphView.setCenterX(cx);
+                        GraphView.setCenterY(cy);
+                    }
+                    view.setDirty(true);
+                });
+
+                builder.setNegativeButton(getString(android.R.string.cancel), (dialog, whichButton) -> dialog.cancel());
+                builder.show();
+                break;
         default:
             return false;
         }

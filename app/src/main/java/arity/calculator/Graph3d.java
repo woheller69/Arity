@@ -20,7 +20,16 @@ class Graph3d {
     private int vertexVbo, colorVbo, vertexElementVbo;
     private boolean useVBO;
     private int nVertex;
-    
+    private static float centerX=0;
+    private static float centerY=0;
+
+    public static void setCenterX(float x){
+        centerX = x;
+    }
+    public static void setCenterY(float y){
+        centerY = y;
+    }
+
     Graph3d(GL11 gl) {
         short[] b = new short[N*N];
         int p = 0;
@@ -103,7 +112,7 @@ class Graph3d {
                 float xinc = (i & 1) == 0 ? stepX : -stepX;
                 x += xinc;
                 for (int j = 0; j < N; ++j, x+=xinc, pos+=3) {
-                    float z = (float) f.eval(x, y);
+                    float z = (float) f.eval(x-centerX, y-centerY);
                     vertices[pos] = x;
                     vertices[pos+1] = y;
                     vertices[pos+2] = z;

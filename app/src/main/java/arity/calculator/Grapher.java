@@ -8,6 +8,7 @@ public interface Grapher {
     static final String SCREENSHOT_DIR = "/screenshots";
     public void setFunction(Function f);
     public void onPause();
+    public void setDirty(Boolean dirty);
     public void onResume();
     public String captureScreenshot();
 }

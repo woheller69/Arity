@@ -35,7 +35,14 @@ public class Graph3dView extends GLView implements
         init();
     }
 
+    public void setDirty(Boolean dirty){
+      isDirty=dirty;
+      startLooping();
+    }
+
     private void init() {
+        Graph3d.setCenterX(0);
+        Graph3d.setCenterY(0);
         startLooping();
         zoomController.setOnZoomListener(this);
         

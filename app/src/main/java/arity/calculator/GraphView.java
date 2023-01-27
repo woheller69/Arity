@@ -42,6 +42,16 @@ public class GraphView extends View implements
     private ZoomTracker zoomTracker = new ZoomTracker();
     private TouchHandler touchHandler;
     private float lastTouchX, lastTouchY;
+    private static float centerX=0;
+    private static float centerY=0;
+
+    public static void setCenterX(float centerX) {
+        GraphView.centerX = centerX;
+    }
+
+    public static void setCenterY(float centerY) {
+        GraphView.centerY = centerY;
+    }
 
     private static final int
         COL_AXIS = 0xff00a000,
@@ -67,6 +77,8 @@ public class GraphView extends View implements
     }
 
     private void init(Context context) {
+        centerX=0;
+        centerY=0;
         zoomController.setOnZoomListener(this);
         scroller = new Scroller(context);
         paint.setAntiAlias(false);
@@ -132,6 +144,14 @@ public class GraphView extends View implements
     public void onPause() {
     }
 
+    @Override
+    public void setDirty(Boolean dirty) {
+        if (dirty){
+            clearAllGraph();
+            invalidate();
+        }
+    }
+
     public void onDetachedFromWindow() {
         zoomController.setVisible(false);
         super.onDetachedFromWindow();
@@ -160,7 +180,7 @@ public class GraphView extends View implements
     }
 
     private float eval(Function f, float x) {
-        float v = (float) f.eval(x);
+        float v = (float) f.eval(x + centerX) - centerY;
         // Calculator.log("eval " + x + "; " + v); 
         if (v < -10000f) {
             return -10000f;
@@ -423,7 +443,7 @@ public class GraphView extends View implements
         for (float x = (v - minX) * scale; x <= width; x += stepScale, v += step) {
             canvas.drawLine(x, 0, x, height, paint);
             if (!(-.001f < v && v < .001f)) {
-                StringBuilder b = format(v);
+                StringBuilder b = format(v + centerX);
                 canvas.drawText(b, 0, b.length(), x, y2+10, textPaint);
             }
         }
@@ -434,7 +454,7 @@ public class GraphView extends View implements
         for (float y = height - (v - minY) * scale; y >= 0; y -= stepScale, v += step) {
             canvas.drawLine(0, y, width, y, paint);
             if (!(-.001f < v && v < .001f)) {
-                StringBuilder b = format(v);
+                StringBuilder b = format(v + centerY);
                 canvas.drawText(b, 0, b.length(), x1, y+4, textPaint);
             }
         }
