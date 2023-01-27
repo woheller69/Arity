@@ -1,29 +1,45 @@
 package arity.calculator;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
 
-import arity.calculator.R;
+public class Settings extends AppCompatActivity {
 
-public class Settings extends PreferenceActivity {
-    private AppCompatDelegate mDelegate;
-    @Override
-    public void onCreate(Bundle state) {
-        super.onCreate(state);
-        addPreferencesFromResource(R.xml.settings);
-        ActionBar actionBar = getDelegate().getSupportActionBar();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_activity);
+
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
 
-    private AppCompatDelegate getDelegate() {
-        if (mDelegate == null) {
-            mDelegate = AppCompatDelegate.create(this, null);
+    public static class SettingsFragment extends PreferenceFragmentCompat {
+        Context context;
+        Intent intent;
+        public SettingsFragment(Context context, Intent intent){
+            this.context = context;
+            this.intent = intent;
         }
-        return mDelegate;
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.settings, rootKey);
+            // Get list of default sources
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.settings, new SettingsFragment(this, getIntent()))
+                .commit();
     }
 }
