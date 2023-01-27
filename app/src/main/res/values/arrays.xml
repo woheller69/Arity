@@ -10,12 +10,14 @@
     </array>
 
     <array name="resolution_entries">
+        <item>"256 x 256</item>
         <item>"144 x 144"</item>
         <item>"72 x 72"</item>
         <item>"36 x 36"</item>
         <item>"24 x 24"</item>
     </array>
     <array name="resolution_values">
+        <item>"256"</item>
         <item>"144"</item>
         <item>"72"</item>
         <item>"36"</item>

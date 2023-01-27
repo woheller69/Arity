@@ -13,7 +13,7 @@ public class Help extends AppCompatActivity {
         super.onCreate(icicle);
         WebView view = new WebView(this);
         setContentView(view);
-        view.loadUrl("file:///android_asset/help.html");
+        view.loadUrl("file:///android_asset/"+ getString(R.string.helpfile));
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
