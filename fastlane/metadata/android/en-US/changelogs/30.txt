@@ -1,0 +1,1 @@
+Change package id to org.woheller.arity for F-Droid

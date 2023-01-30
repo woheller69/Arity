@@ -190,8 +190,8 @@ class Graph3d {
         colorBase += 6*4;
 
         p = base;
-        final float tick = .03f;
-        final float offset = .01f;
+        final float tick = 0f;
+        final float offset = .04f;
         for (int i = 1; i <= NTICK; ++i) {
             vertices[p]   = i-tick;
             vertices[p+1] = -offset;

@@ -6,11 +6,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "arity.calculator"
+        applicationId "org.woheller69.arity"
         minSdk 21
         targetSdk 32
-        versionCode 29
-        versionName "1.29"
+        versionCode 30
+        versionName "1.30"
     }
 
     buildTypes {
@@ -31,6 +31,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'com.xlythe:arity:2.1.7'
+    //implementation 'com.github.woheller69:ArityEngine:dedfc968547d5279388bfabc5a9e1881a3ad35db'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1' //needed due to duplicate class error
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1' //needed due to duplicate class error
 }
