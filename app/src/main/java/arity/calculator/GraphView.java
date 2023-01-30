@@ -430,21 +430,21 @@ public class GraphView extends View implements
             y0 = height - 15;
         }
 
-        final float tickSize = 3;
+        final float tickSize = 5;
         final float y2 = y0 + tickSize;
         paint.setColor(COL_GRID);
         float step = stepFactor(gwidth);
         // Calculator.log("width " + gwidth + " step " + step);
         float v = ((int) (minX/step)) * step;
         textPaint.setColor(COL_TEXT);
-        textPaint.setTextSize(12);
+        textPaint.setTextSize(24);
         textPaint.setTextAlign(Paint.Align.CENTER);
         float stepScale = step * scale;
         for (float x = (v - minX) * scale; x <= width; x += stepScale, v += step) {
             canvas.drawLine(x, 0, x, height, paint);
             if (!(-.001f < v && v < .001f)) {
                 StringBuilder b = format(v + centerX);
-                canvas.drawText(b, 0, b.length(), x, y2+10, textPaint);
+                canvas.drawText(b, 0, b.length(), x, y2+24, textPaint);
             }
         }
         
