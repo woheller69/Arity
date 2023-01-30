@@ -1,6 +1,8 @@
 Scientific calculator with complex numbers and 2D/3D graphing of user-defined
 functions.
 
+- Trigonometric functions
+- Combinatorial functions
 - Complex numbers
 - Binary, octal, hexadecimal numbers
 - Animated 3D graphing

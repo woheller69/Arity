@@ -157,6 +157,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 	defs = new Defs(this, symbols);
 	if (history.fileNotFound) {
 	    String[] init = {
+	    "sin(x^2+y^2)!\u00f7(1+x^2+y^2)",
 		"sqrt(pi)\u00f70.5!",
 		"e^(i\u00d7pi)",
 		"ln(e^100)",

@@ -1,5 +1,7 @@
 Wissenschaftlicher Taschenrechner mit komplexen Zahlen und benutzerdefinierten 2D/3D-Graphen.
 
+- Trigonometrie
+- Kombinatorik
 - Komplexe Zahlen
 - Binäre, oktale, hexadezimale Zahlen
 - Animierte 3D-Graphen
