@@ -63,6 +63,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     private ArrayList<Function> auxFuncs = new ArrayList<Function>();
     static boolean useSmoothShading3D = true;
     static int resolution3D = 72;
+    private static String savedInputText ="";
 
     private static final char[][] ALPHA = {
         {'q', 'w', '=', ',', ';', SQRT, '!', '\''},
@@ -182,12 +183,13 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     public void onPause() {
         super.onPause();
         graph3dView.onPause();
-	history.updateEdited(input.getText().toString());
+        savedInputText = input.getText().toString();
         history.save();
-	defs.save();
+	    defs.save();
     }
 
     public void onResume() {
+        changeInput(savedInputText);
         super.onResume();
         graph3dView.onResume();
     }
@@ -262,7 +264,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
     // OnItemClickListener
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
-	history.moveToPos(pos, input.getText().toString());
+	history.moveToPos(pos);
 	changeInput(history.getText());
     }
     
@@ -542,14 +544,14 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     */
 
     void onUp() {
-        if (history.moveUp(input.getText().toString())) {
+        if (history.moveUp()) {
             changeInput(history.getText());
             // updateChecked();
         }
     }
 
     void onDown() {
-        if (history.moveDown(input.getText().toString())) {
+        if (history.moveDown()) {
             changeInput(history.getText());
             // updateChecked();
         }

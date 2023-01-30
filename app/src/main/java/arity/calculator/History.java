@@ -79,17 +79,12 @@ class History extends FileHandler {
         return true;
     }
 
-    void moveToPos(int listPos, String text) {
-	currentEntry().editLine = text;
+    void moveToPos(int listPos) {
 	pos = entries.size() - listPos - 1;
     }
 
-    void updateEdited(String text) {
-        currentEntry().editLine = text;
-    }
 
-    boolean moveUp(String text) {
-        updateEdited(text);
+    boolean moveUp() {
         if (pos >= entries.size()) {
             return false;
         }
@@ -97,8 +92,7 @@ class History extends FileHandler {
         return true;
     }
     
-    boolean moveDown(String text) {
-        updateEdited(text);
+    boolean moveDown() {
         if (pos <= 0) {
             return false;
         }
@@ -107,6 +101,6 @@ class History extends FileHandler {
     }
 
     String getText() {
-        return currentEntry().editLine;
+        return currentEntry().line;
     }    
 }
