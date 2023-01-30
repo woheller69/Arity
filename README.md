@@ -12,7 +12,7 @@ height="80">](https://f-droid.org/packages/org.woheller69.arity/)
 
 ## License
 
-This is an updated (Android 12, SDK 32) fork from 
+This is an updated (Android 12, SDK 32) fork of 
 
 https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://arity-calculator.googlecode.com/hg/
 
