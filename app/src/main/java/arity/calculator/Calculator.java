@@ -38,7 +38,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
                                                     SharedPreferences.OnSharedPreferenceChangeListener
 {
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0', 
-        UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3';
+        UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3', ERASE = '\u232b', ENTER = '\u23ce';
 
     private static final int MSG_INPUT_CHANGED = 1;
     private static final String INFINITY = "Infinity";
@@ -76,7 +76,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         {'7', '8', '9', '%', '^', ARROW},
         {'4', '5', '6','(', ')', 'C'},
         {'1', '2', '3', TIMES, DIV, 'E'},
-        {'0', '0', '.', '+', MINUS, 'E'},
+        {'0', '.', PI, '+', MINUS, 'E'},
     };
 
     private static final char[][] DIGITS2 = {
@@ -185,7 +185,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         graph3dView.onPause();
         savedInputText = input.getText().toString();
         history.save();
-	    defs.save();
+        defs.save();
     }
 
     public void onResume() {

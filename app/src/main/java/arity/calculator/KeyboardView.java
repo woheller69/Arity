@@ -83,8 +83,8 @@ public class KeyboardView extends View {
                 float ch = line < nLine-1 && c == keys[line+1][col] ? cellh+cellh : cellh;
                 final float x = x1 + cw/2;
                 final int backColor = (('a' <= c && c <= 'z') 
-                                       || c == ' ' || c == Calculator.PI) ? 0xff404040 :
-                    (('0' <= c && c <= '9') || c == '.') ? 0xff303030 :
+                                       || c == ' ') ? 0xff404040 :
+                    (('0' <= c && c <= '9') || c == '.' || c == Calculator.PI) ? 0xff303030 :
                     (c == 'E' || c == 'C' || c == Calculator.ARROW) ? 0xff306060 : 0xff808080;
                 /*
                     (c == '+' || c == '\u2212' || c == '\u00d7' || c == '\u00f7') ? 0xff808080 :
@@ -193,10 +193,7 @@ public class KeyboardView extends View {
                 downCol = getCol(downX);
                 downCW = cellw;
                 downCH = cellh;
-                if (downLine == 3 && downCol <= 1 && isLarge) {
-                    downCol = 0;
-                    downCW = cellw + cellw;
-                } else if (downCol == 5 && downLine >= 2 && isLarge) {
+                if (downCol == 5 && downLine >= 2 && isLarge) {
                     downLine = 2;
                     downCH = cellh + cellh;
                 }
