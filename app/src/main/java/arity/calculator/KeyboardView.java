@@ -63,17 +63,17 @@ public class KeyboardView extends View {
         
         cellw = width / (float) nCol;
         cellh = height / (float) nLine;
-        
+
         Paint textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setTextSize(isLarge ? 26 : 22);
+        textPaint.setTextSize(isLarge ? scaledSize(18) : scaledSize(16));
         textPaint.setColor(0xffffffff);
         textPaint.setTextAlign(Paint.Align.CENTER);
         final float extraY = isLarge ? 10 : 8;
 
         Paint textPaintLarge = new Paint();
         textPaintLarge.setAntiAlias(true);
-        textPaintLarge.setTextSize(36);
+        textPaintLarge.setTextSize(scaledSize(24));
         textPaintLarge.setColor(0xffffffff);
         textPaintLarge.setTextAlign(Paint.Align.CENTER);
 
@@ -248,4 +248,9 @@ public class KeyboardView extends View {
         invalidate((int)x1, (int)y1, x2, y2);
         // log("invalidate " + x + ' '  + y + ' ' + ((int)x1) + ' ' + ((int)y1) + ' ' + x2 + ' ' + y2);
     }
+
+    private float scaledSize(int spSize) {
+        return spSize * getResources().getDisplayMetrics().scaledDensity;
+    }
+
 }
