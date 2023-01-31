@@ -38,7 +38,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
                                                     SharedPreferences.OnSharedPreferenceChangeListener
 {
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0', 
-        UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3', ERASE = '\u232b', ENTER = '\u23ce';
+        UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3';
 
     private static final int MSG_INPUT_CHANGED = 1;
     private static final String INFINITY = "Infinity";
@@ -135,7 +135,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());            
         input.setInputType(InputType.TYPE_CLASS_TEXT);  //With InputType 0 the cursor vanishes
-	    changeInput(history.getText());
+	    changeInput(savedInputText);
         if (oldText != null) {
             input.setText(oldText);
         }
@@ -428,8 +428,8 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         if (key == 'E') {
             doEnter();
         } else if (key == 'C') {
-            doBackspace();
-        } else if (key == ARROW) {
+            runOnUiThread(this::doBackspace);
+        }else if (key == ARROW) {
             isAlphaVisible = !isAlphaVisible;
             updateAlpha();
         } else {
@@ -567,7 +567,8 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
     void doBackspace() {
         input.dispatchKeyEvent(KEY_DEL);
+        if (input.getText().toString().length()==0) {
+            showGraph(null);
+        }
     }
-
-
 }

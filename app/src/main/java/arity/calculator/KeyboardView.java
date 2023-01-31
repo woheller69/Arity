@@ -13,6 +13,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
 import android.util.AttributeSet;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class KeyboardView extends View {
     private char[][] keys;
@@ -29,6 +31,8 @@ public class KeyboardView extends View {
     private Calculator calculator;
     private KeyboardView aboveView;
     private boolean isLarge, isBottom;
+    private TimerTask timerTask;
+    private Timer repeat;
 
     public KeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -67,6 +71,12 @@ public class KeyboardView extends View {
         textPaint.setTextAlign(Paint.Align.CENTER);
         final float extraY = isLarge ? 10 : 8;
 
+        Paint textPaintLarge = new Paint();
+        textPaintLarge.setAntiAlias(true);
+        textPaintLarge.setTextSize(36);
+        textPaintLarge.setColor(0xffffffff);
+        textPaintLarge.setTextAlign(Paint.Align.CENTER);
+
         Paint linePaint = new Paint();
         linePaint.setAntiAlias(false);
         for (int line = 0; line < nLine; ++line) {
@@ -101,6 +111,10 @@ public class KeyboardView extends View {
                 case 'C':
                     drawDrawable(canvas, R.drawable.delete, x1, y1, cw, ch);
                     break;
+
+                    case Calculator.ARROW:
+                        canvas.drawText(lineKeys, col, 1, x, y, textPaintLarge);
+                        break;
 
                 default:
                     // textPaint.setColor(('0' <= c && c <= '9') ? 0xffffff00 : 0xffffffff);
@@ -193,15 +207,27 @@ public class KeyboardView extends View {
                 downCol = getCol(downX);
                 downCW = cellw;
                 downCH = cellh;
-                if (downCol == 5 && downLine >= 2 && isLarge) {
+                if (downCol == 5 && downLine >= 2 && isLarge) {  //ENTER height is 2 cells in portrait mode
                     downLine = 2;
                     downCH = cellh + cellh;
                 }
                 invalidateCell(downLine, downCol);
                 char key = keys[downLine][downCol];
                 calculator.onKey(key);
+
+                if (key=='C'){
+                    repeat = new Timer();
+                    timerTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            calculator.onKey(key); //Repeate backspace if pressed long
+                        }
+                    };
+                    repeat.schedule(timerTask, 500,100);
+                }
             }
         } else if (action == MotionEvent.ACTION_UP) {
+            if (repeat!=null) repeat.cancel();
             if (isDown) {
                 isDown = false;
                 invalidateCell(downLine, downCol);
