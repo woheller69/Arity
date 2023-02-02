@@ -25,12 +25,11 @@
      android:gravity="left"
      android:padding="5dp"
      android:textColor="@android:color/black"
-    android:textCursorDrawable="@drawable/cursor_color"
+     android:textCursorDrawable="@drawable/cursor_color"
      android:background="@drawable/edit_text_border"
      android:textSize="28dip"
      android:scrollbars="none"
      android:singleLine="true"
-     android:imeOptions="flagNoEnterAction|flagNoExtractUi"
      />
 <ListView
      android:id="@+id/history"

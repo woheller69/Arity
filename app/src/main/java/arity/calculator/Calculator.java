@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.Layout;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -129,12 +130,14 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             float x = motionEvent.getX() + input.getScrollX();
             int offset = layout.getOffsetForHorizontal(0, x);
             input.setSelection(offset);
-            return true;  //return true to make sure the touch event is consumed and will not be used to open the soft-keyboard
+            return false;  //return true could be used to make sure the touch event is consumed and will not be used to open the soft-keyboard. But then text copy/paste will not work
         });
         input.setOnKeyListener(this);
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());            
         input.setInputType(InputType.TYPE_CLASS_TEXT);  //With InputType 0 the cursor vanishes
+        input.setTextIsSelectable(true);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);  //make sure, soft-keyboard is not opened (if window is focusable, setting this flag prevents this window from becoming the target of the input method)
 	    changeInput(savedInputText);
         if (oldText != null) {
             input.setText(oldText);
