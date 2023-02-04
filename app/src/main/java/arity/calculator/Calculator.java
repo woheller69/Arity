@@ -128,7 +128,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         input.setOnKeyListener(this);
         input.addTextChangedListener(this);
         input.setEditableFactory(new CalculatorEditable.Factory());
-        input.setInputType(InputType.TYPE_CLASS_TEXT);  //With InputType 0 the cursor vanishes
+        input.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);  //With InputType 0 the cursor vanishes
         input.setTextIsSelectable(true);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);  //make sure, soft-keyboard is not opened (if window is focusable, setting this flag prevents this window from becoming the target of the input method)
 	    changeInput(savedInputText);
@@ -388,7 +388,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
                 result.setEnabled(true);
                 showGraph(null);
             } else {
-                result.setText("function");
+                result.setText(R.string.function);
                 result.setEnabled(true);
                 showGraph(null);
             }

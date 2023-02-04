@@ -77,12 +77,12 @@ public class ShowGraph extends AppCompatActivity {
             }
             String fileName = view.captureScreenshot();
             if (fileName != null) {
-                Toast.makeText(this, "screenshot saved as \n" + fileName, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.screenshot_saved)+"\n" + fileName, Toast.LENGTH_LONG).show();
             }
             break;
             case R.id.set_center:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Set center coordinates");
+                builder.setTitle(getString(R.string.dialog_set_center));
 
                 final EditText centerX = new EditText(this);
                 centerX.setHint("X");

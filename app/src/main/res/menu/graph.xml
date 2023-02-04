@@ -1,4 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@+id/capture_screenshot" android:title="Capture screenshot" />
-  <item android:id="@+id/set_center" android:title="Set center" />
+  <item android:id="@+id/capture_screenshot" android:title="@string/menu_capture_screenshot" />
+  <item android:id="@+id/set_center" android:title="@string/menu_set_center" />
 </menu>

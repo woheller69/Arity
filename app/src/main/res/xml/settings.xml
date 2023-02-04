@@ -2,15 +2,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
         android:key="3d_shading"
-        android:title="3D Shading"
-        android:defaultValue="smooth"
+        android:title="@string/shading3D"
+        android:defaultValue="@string/shading_value_smooth"
         android:entries="@array/shading_entries"
         android:entryValues="@array/shading_values"
         />
 
     <ListPreference
         android:key="3d_resolution"
-        android:title="3D Resolution"
+        android:title="@string/resolution3D"
         android:defaultValue="72"
         android:entries="@array/resolution_entries"
         android:entryValues="@array/resolution_values"

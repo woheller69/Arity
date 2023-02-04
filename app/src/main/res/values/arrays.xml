@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="shading_entries">
-        <item>Smooth, slower</item>
-        <item>Flat, faster</item>
+        <item>@string/shading_entry_smooth</item>
+        <item>@string/shading_entry_flat</item>
     </array>
     <array name="shading_values">
-        <item>smooth</item>
-        <item>flat</item>
+        <item>@string/shading_value_smooth</item>
+        <item>@string/shading_value_flat</item>
     </array>
 
     <array name="resolution_entries">
