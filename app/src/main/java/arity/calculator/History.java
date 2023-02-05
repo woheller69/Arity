@@ -83,6 +83,10 @@ class History extends FileHandler {
 	pos = entries.size() - listPos - 1;
     }
 
+    void deletePos(int listPos) {
+        entries.remove(entries.size() - listPos - 1);
+        pos = entries.size();
+    }
 
     boolean moveUp() {
         if (pos >= entries.size()) {

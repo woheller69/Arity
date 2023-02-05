@@ -33,10 +33,8 @@ import org.javia.arity.Util;
 import org.javia.arity.*;
 
 public class Calculator extends AppCompatActivity implements TextWatcher,
-						    View.OnKeyListener,
-                                                    View.OnClickListener,
-						    AdapterView.OnItemClickListener,
-                                                    SharedPreferences.OnSharedPreferenceChangeListener
+						    View.OnKeyListener, View.OnClickListener,
+                            SharedPreferences.OnSharedPreferenceChangeListener
 {
     static final char MINUS = '\u2212', TIMES = '\u00d7', DIV = '\u00f7', SQRT = '\u221a', PI = '\u03c0', 
         UP_ARROW = '\u21e7', DN_ARROW = '\u21e9', ARROW = '\u21f3';
@@ -140,7 +138,14 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         graph3dView.setOnClickListener(this);
         if (historyView != null) {
             historyView.setAdapter(adapter);
-	    historyView.setOnItemClickListener(this);
+	    historyView.setOnItemClickListener((adapterView, view, i, l) ->{
+            history.moveToPos(i);
+            changeInput(history.getText()); });
+
+	    historyView.setOnItemLongClickListener((adapterView, view, i, l) -> {
+            history.deletePos(i);
+            adapter.notifyDataSetInvalidated();
+            return true; });
         }
     }
 
@@ -256,12 +261,6 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         if (target == graphView || target == graph3dView) {
             startActivity(new Intent(this, ShowGraph.class));
         }
-    }
-
-    // OnItemClickListener
-    public void onItemClick(AdapterView parent, View view, int pos, long id) {
-	history.moveToPos(pos);
-	changeInput(history.getText());
     }
     
     // TextWatcher
