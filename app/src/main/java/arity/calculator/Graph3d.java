@@ -93,7 +93,7 @@ class Graph3d {
         final float minX = -size, maxX = size, minY = -size, maxY = size;
 
         Calculator.log("update VBOs " + vertexVbo + ' ' + colorVbo + ' ' + vertexElementVbo);
-        nVertex = N*N+6+8 + NTICK*6;
+        nVertex = N*N + 6 + 8 + NTICK*6 + 14;  //14 = 7*2 = "x,y,z" labels
         int nFloats = nVertex * 3;
         float vertices[] = new float[nFloats];
         byte colors[] = new byte[nVertex << 2];
@@ -221,7 +221,78 @@ class Graph3d {
             p += 6;
             
         }
-        for (int i = colorBase+NTICK*6*4-1; i >= colorBase; --i) {
+        for (int i = colorBase+NTICK*3*2*4-1; i >= colorBase; --i) {  //  3 (x/y/z) lines (=2 coordinates) per tick, 4 color values
+            colors[i] = (byte) 255;
+        }
+
+        colorBase += NTICK*3*2*4;
+                                    // "X label (2 lines)"
+        vertices[p]   = 2-offset;
+        vertices[p+1] = 0;
+        vertices[p+2] = -offset;
+
+        vertices[p+3] = 2+offset;
+        vertices[p+4] = 0;
+        vertices[p+5] = -3*offset;
+        p += 6;
+
+        vertices[p]   = 2+offset;
+        vertices[p+1] = 0;
+        vertices[p+2] = -offset;
+
+        vertices[p+3] = 2-offset;
+        vertices[p+4] = 0;
+        vertices[p+5] = -3*offset;
+        p += 6;
+
+                                // "Y label (2 lines)"
+        vertices[p]   = 0;
+        vertices[p+1] = 2-offset;
+        vertices[p+2] = -offset;
+
+        vertices[p+3] = 0;
+        vertices[p+4] = 2;
+        vertices[p+5] = -2*offset;
+        p += 6;
+
+        vertices[p]   = 0;
+        vertices[p+1] = 2+offset;
+        vertices[p+2] = -offset;
+
+        vertices[p+3] = 0;
+        vertices[p+4] = 2-offset;
+        vertices[p+5] = -3*offset;
+        p += 6;
+
+                                 // "Z label (3 lines)"
+        vertices[p]   = offset;
+        vertices[p+1] = 0;
+        vertices[p+2] = 2+offset;
+
+        vertices[p+3] = 2*offset;
+        vertices[p+4] = 0;
+        vertices[p+5] = 2+offset;
+        p += 6;
+
+        vertices[p]   = 2*offset;
+        vertices[p+1] = 0;
+        vertices[p+2] = 2+offset;
+
+        vertices[p+3] = offset;
+        vertices[p+4] = 0;
+        vertices[p+5] = 2-offset;
+        p += 6;
+
+        vertices[p]   = offset;
+        vertices[p+1] = 0;
+        vertices[p+2] = 2-offset;
+
+        vertices[p+3] = 2*offset;
+        vertices[p+4] = 0;
+        vertices[p+5] = 2-offset;
+        p += 6;
+
+        for (int i = colorBase+7*2*4-1; i >= colorBase; --i) {  // 7 lines: 2 + 2 + 3
             colors[i] = (byte) 255;
         }
 
