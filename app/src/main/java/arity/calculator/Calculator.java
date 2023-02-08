@@ -60,8 +60,8 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     static ArrayList<Function> graphedFunction;
     static Defs defs;
     private ArrayList<Function> auxFuncs = new ArrayList<Function>();
-    static boolean useSmoothShading3D = true;
-    static int resolution3D = 72;
+    static boolean useSmoothShading3D;
+    static int resolution3D;
     private static String savedInputText ="";
 
     private static final char[][] ALPHA = {
@@ -159,7 +159,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 	defs = new Defs(this, symbols);
 	if (history.fileNotFound) {
 	    String[] init = {
-	    "sin(x^2+y^2)!\u00f7(1+x^2+y^2)",
+	    "4\u00d7sin(x^2+y^2)\u00f7(1+x^2+y^2)\u00d7cos(x\u00d7y)",
 		"sqrt(pi)\u00f70.5!",
 		"e^(i\u00d7pi)",
 		"ln(e^100)",
@@ -176,7 +176,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         prefs.registerOnSharedPreferenceChangeListener(this);
         String value = prefs.getString("3d_shading", "smooth");
         useSmoothShading3D = value.equals("smooth");
-        resolution3D = Integer.parseInt(prefs.getString("3d_resolution","72"));
+        resolution3D = Integer.parseInt(prefs.getString("3d_resolution","144"));
 
         if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this,"https://github.com/woheller69/Arity");
     }

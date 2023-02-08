@@ -227,69 +227,69 @@ class Graph3d {
 
         colorBase += NTICK*3*2*4;
                                     // "X label (2 lines)"
-        vertices[p]   = 2-offset;
+        vertices[p]   = 1.5f-offset;
         vertices[p+1] = 0;
         vertices[p+2] = -offset;
 
-        vertices[p+3] = 2+offset;
+        vertices[p+3] = 1.5f+offset;
         vertices[p+4] = 0;
         vertices[p+5] = -3*offset;
         p += 6;
 
-        vertices[p]   = 2+offset;
+        vertices[p]   = 1.5f+offset;
         vertices[p+1] = 0;
         vertices[p+2] = -offset;
 
-        vertices[p+3] = 2-offset;
+        vertices[p+3] = 1.5f-offset;
         vertices[p+4] = 0;
         vertices[p+5] = -3*offset;
         p += 6;
 
                                 // "Y label (2 lines)"
         vertices[p]   = 0;
-        vertices[p+1] = 2-offset;
+        vertices[p+1] = 1.5f-offset;
         vertices[p+2] = -offset;
 
         vertices[p+3] = 0;
-        vertices[p+4] = 2;
+        vertices[p+4] = 1.5f;
         vertices[p+5] = -2*offset;
         p += 6;
 
         vertices[p]   = 0;
-        vertices[p+1] = 2+offset;
+        vertices[p+1] = 1.5f+offset;
         vertices[p+2] = -offset;
 
         vertices[p+3] = 0;
-        vertices[p+4] = 2-offset;
+        vertices[p+4] = 1.5f-offset;
         vertices[p+5] = -3*offset;
         p += 6;
 
                                  // "Z label (3 lines)"
         vertices[p]   = offset;
         vertices[p+1] = 0;
-        vertices[p+2] = 2+offset;
+        vertices[p+2] = 1.5f+offset;
 
         vertices[p+3] = 2*offset;
         vertices[p+4] = 0;
-        vertices[p+5] = 2+offset;
+        vertices[p+5] = 1.5f+offset;
         p += 6;
 
         vertices[p]   = 2*offset;
         vertices[p+1] = 0;
-        vertices[p+2] = 2+offset;
+        vertices[p+2] = 1.5f+offset;
 
         vertices[p+3] = offset;
         vertices[p+4] = 0;
-        vertices[p+5] = 2-offset;
+        vertices[p+5] = 1.5f-offset;
         p += 6;
 
         vertices[p]   = offset;
         vertices[p+1] = 0;
-        vertices[p+2] = 2-offset;
+        vertices[p+2] = 1.5f-offset;
 
         vertices[p+3] = 2*offset;
         vertices[p+4] = 0;
-        vertices[p+5] = 2-offset;
+        vertices[p+5] = 1.5f-offset;
         p += 6;
 
         for (int i = colorBase+7*2*4-1; i >= colorBase; --i) {  // 7 lines: 2 + 2 + 3

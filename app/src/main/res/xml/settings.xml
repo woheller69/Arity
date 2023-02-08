@@ -11,7 +11,7 @@
     <ListPreference
         android:key="3d_resolution"
         android:title="@string/resolution3D"
-        android:defaultValue="72"
+        android:defaultValue="144"
         android:entries="@array/resolution_entries"
         android:entryValues="@array/resolution_values"
         />
