@@ -1,0 +1,5 @@
+Allow copy/paste
+Auto-repeat backspace
+Add x y z labels to 3D graph
+Add PI to keyboard
+Delete history item with long click
