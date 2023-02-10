@@ -68,7 +68,7 @@ class CalculatorEditable extends SpannableStringBuilder {
 	}
         
 	//don't allow leading operator + * /
-	if (start == 0 && isOperator(c)) { // && c != MINUS
+	if (start == 0 && isOperator(c) && c != MINUS) {
 	    return super.replace(start, end, "ans" + c);
 	}
 
