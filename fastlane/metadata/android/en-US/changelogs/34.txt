@@ -1,0 +1,1 @@
+Allow '-' sign at start of a line
