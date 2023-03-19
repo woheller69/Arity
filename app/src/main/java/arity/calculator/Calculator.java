@@ -448,10 +448,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             if (f.arity() == 1) {
                 graphView.setFunction(f);
                 if (graphView.getVisibility() != View.VISIBLE) {
-                    if (isAlphaVisible) {
-                        isAlphaVisible = false;
-                        updateAlpha();
-                    }
+
                     result.setVisibility(View.GONE);
                     historyView.setVisibility(View.GONE);
                     graph3dView.setVisibility(View.GONE);
@@ -461,10 +458,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             } else {
                 graph3dView.setFunction(f);
                 if (graph3dView.getVisibility() != View.VISIBLE) {
-                    if (isAlphaVisible) {
-                        isAlphaVisible = false;
-                        updateAlpha();
-                    }
+
                     result.setVisibility(View.GONE);
                     historyView.setVisibility(View.GONE);
                     graphView.setVisibility(View.GONE);

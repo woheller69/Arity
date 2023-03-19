@@ -105,16 +105,16 @@ public class KeyboardView extends View {
 
                 switch (c) {
                 case 'E':
-                    drawDrawable(canvas, R.drawable.enter, x1, y1, cw, ch);
+                    drawDrawable(canvas, R.drawable.ic_keyboard_return, x1, y1, cw, ch);
                     break;
 
                 case 'C':
-                    drawDrawable(canvas, R.drawable.delete, x1, y1, cw, ch);
+                    drawDrawable(canvas, R.drawable.ic_backspace, x1, y1, cw, ch);
                     break;
 
-                    case Calculator.ARROW:
-                        canvas.drawText(lineKeys, col, 1, x, y, textPaintLarge);
-                        break;
+                case Calculator.ARROW:
+                    drawDrawable(canvas, R.drawable.ic_unfold_more, x1, y1, cw, ch);
+                    break;
 
                 default:
                     // textPaint.setColor(('0' <= c && c <= '9') ? 0xffffff00 : 0xffffffff);
