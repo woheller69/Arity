@@ -28,17 +28,17 @@
     <activity
         android:name="ListDefs"
         android:theme="@style/AppTheme"
-        android:label="User definitions"
+        android:label="@string/menu_user_definitions"
         android:parentActivityName=".Calculator"/>
     <activity
         android:name="Help"
         android:theme="@style/AppTheme"
-        android:label="Arity Calculator"
+        android:label="@string/menu_help"
         android:parentActivityName=".Calculator"/>
     <activity
         android:name="Settings"
         android:theme="@style/AppTheme"
-        android:label="Calculator settings"
+        android:label="@string/menu_settings"
         android:parentActivityName=".Calculator"/>
   </application>
 </manifest> 
