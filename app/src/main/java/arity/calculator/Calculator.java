@@ -487,6 +487,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             if (arity == 0) {
                 value = f.evalComplex();
                 symbols.define("ans", value);
+                if (fan.name != null) symbols.define(fan.name,value);
             }
 	    historyChanged = arity == 0 ?
 		history.onEnter(text, formatEval(value)) :
