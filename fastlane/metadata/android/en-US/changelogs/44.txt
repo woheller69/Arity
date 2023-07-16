@@ -1,0 +1,3 @@
+Material 3 design
+Support for monochrome icon
+Support for dynamic colors
