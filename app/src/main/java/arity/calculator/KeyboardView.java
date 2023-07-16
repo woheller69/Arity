@@ -36,10 +36,10 @@ public class KeyboardView extends View {
 
     public KeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        calculator = (Calculator) context;
         downPaint.setAntiAlias(false);
-        downPaint.setColor(0xffffffff);
+        downPaint.setColor(Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnSurface));
         downPaint.setStyle(Paint.Style.STROKE);
-        calculator = (Calculator) context;        
     }
     
     void init(char[][] keys, boolean isLarge, boolean isBottom) {
@@ -66,15 +66,15 @@ public class KeyboardView extends View {
 
         Paint textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setTextSize(isLarge ? scaledSize(18) : scaledSize(16));
-        textPaint.setColor(0xffffffff);
+        textPaint.setTextSize(isLarge ? Util.scaledSize(calculator,18) : Util.scaledSize(calculator,16));
+        textPaint.setColor(Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnSurface));
         textPaint.setTextAlign(Paint.Align.CENTER);
         final float extraY = isLarge ? 10 : 8;
 
         Paint textPaintLarge = new Paint();
         textPaintLarge.setAntiAlias(true);
-        textPaintLarge.setTextSize(scaledSize(24));
-        textPaintLarge.setColor(0xffffffff);
+        textPaintLarge.setTextSize(Util.scaledSize(calculator,24));
+        textPaintLarge.setColor(Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnSurface));
         textPaintLarge.setTextAlign(Paint.Align.CENTER);
 
         Paint linePaint = new Paint();
@@ -95,7 +95,7 @@ public class KeyboardView extends View {
                 final int backColor = (('a' <= c && c <= 'z') 
                                        || c == ' ') ? 0xff404040 :
                     (('0' <= c && c <= '9') || c == '.' || c == Calculator.PI) ? 0xff303030 :
-                    (c == 'E' || c == 'C' || c == Calculator.ARROW) ? 0xff306060 : 0xff808080;
+                    (c == 'E' || c == 'C' || c == Calculator.ARROW) ? Util.getThemeColor(calculator, com.google.android.material.R.attr.colorPrimary) : 0xff808080;
                 /*
                     (c == '+' || c == '\u2212' || c == '\u00d7' || c == '\u00f7') ? 0xff808080 :
                     0xffb0b0b0;
@@ -117,24 +117,11 @@ public class KeyboardView extends View {
                     break;
 
                 default:
-                    // textPaint.setColor(('0' <= c && c <= '9') ? 0xffffff00 : 0xffffffff);
                     canvas.drawText(lineKeys, col, 1, x, y, textPaint);
                 }
             }
         }
 
-        /*
-        linePaint.setStrokeWidth(0);
-        linePaint.setColor(0xff000000);
-        for (int line = 0; line <= nLine; ++line) {
-            final float y = getY(line);
-            canvas.drawLine(0, y, width, y, linePaint);
-        }
-        for (int col = 0; col <= nCol; ++col) {
-            final float x = getX(col);
-            canvas.drawLine(x, 0, x, height, linePaint);
-        }
-        */
     }
 
     private void drawDrawable(Canvas canvas, int id, float x, float y, float cw, float ch) {
@@ -247,10 +234,6 @@ public class KeyboardView extends View {
         int y2 = (int)(y1+downCH+1);
         invalidate((int)x1, (int)y1, x2, y2);
         // log("invalidate " + x + ' '  + y + ' ' + ((int)x1) + ' ' + ((int)y1) + ' ' + x2 + ' ' + y2);
-    }
-
-    private float scaledSize(int spSize) {
-        return spSize * getResources().getDisplayMetrics().scaledDensity;
     }
 
 }

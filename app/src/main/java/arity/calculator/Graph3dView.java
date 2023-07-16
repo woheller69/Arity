@@ -23,14 +23,17 @@ public class Graph3dView extends GLView implements
     private float zoomLevel = 1, targetZoom, zoomStep = 0, currentZoom;
     private FPS fps = new FPS();
     private Graph3d graph;
+    private Context context;
 
     public Graph3dView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         init();
     }
 
     public Graph3dView(Context context) {
         super(context);
+        this.context = context;
         touchHandler = new TouchHandler(this);
         init();
     }
@@ -180,7 +183,7 @@ public class Graph3dView extends GLView implements
         gl.glClearColor(0, 0, 0, 1);
         gl.glShadeModel(Calculator.useSmoothShading3D ? GL10.GL_SMOOTH : GL10.GL_FLAT);
         gl.glDisable(GL10.GL_LIGHTING);
-        graph = new Graph3d((GL11) gl);
+        graph = new Graph3d(context, (GL11) gl);
         isDirty = true;
         angleX = .5f;
         angleY = 0;

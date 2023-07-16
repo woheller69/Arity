@@ -4,9 +4,12 @@ package arity.calculator;
 
 import static android.os.Environment.DIRECTORY_PICTURES;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.Build;
+import android.util.TypedValue;
 
 import java.nio.ShortBuffer;
 import java.io.*;
@@ -68,5 +71,16 @@ class Util {
         }
         buf.rewind();
         bitmap.copyPixelsFromBuffer(buf);
+    }
+    public static int getThemeColor(Context context, int colorResId) {
+        TypedValue typedValue = new TypedValue();
+        TypedArray typedArray = context.obtainStyledAttributes(typedValue.data, new int[] {colorResId});
+        int color = typedArray.getColor(0, 0);
+        typedArray.recycle();
+        return color;
+    }
+
+    public static float scaledSize(Context context, int spSize) {
+        return spSize * context.getResources().getDisplayMetrics().scaledDensity;
     }
 }

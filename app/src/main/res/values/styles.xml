@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.Material3.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorAccent">@android:color/holo_orange_dark</item>
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
     </style>
 </resources>

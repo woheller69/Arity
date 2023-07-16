@@ -2,6 +2,8 @@
 
 package arity.calculator;
 
+import android.content.Context;
+import android.graphics.Color;
 import java.nio.ByteBuffer;
 import java.nio.ShortBuffer;
 import java.nio.ByteOrder;
@@ -22,6 +24,7 @@ class Graph3d {
     private int nVertex;
     private static float centerX=0;
     private static float centerY=0;
+    private int colorXYplane;
 
     public static void setCenterX(float x){
         centerX = x;
@@ -30,7 +33,8 @@ class Graph3d {
         centerY = y;
     }
 
-    Graph3d(GL11 gl) {
+    Graph3d(Context context, GL11 gl) {
+        colorXYplane =  Util.getThemeColor(context, com.google.android.material.R.attr.colorPrimary);
         short[] b = new short[N*N];
         int p = 0;
         for (int i = 0; i < N; i++) {
@@ -161,11 +165,11 @@ class Graph3d {
             vertices[p] = baseSize; vertices[p+1] = i; vertices[p+2] = 0;
             p += 3;
         }
-        for (int i = colorBase; i < colorBase+8*4; i += 4) {
-            colors[i] = 0;
-            colors[i+1] = 0;
-            colors[i+2] = (byte) 255;
-            colors[i+3] = (byte) 255;
+        for (int i = colorBase; i < colorBase+8*4; i += 4) {  // x-y plane
+            colors[i] = (byte) Color.red(colorXYplane);
+            colors[i+1] = (byte) Color.green(colorXYplane);
+            colors[i+2] = (byte) Color.blue(colorXYplane);
+            colors[i+3] = (byte) Color.alpha(colorXYplane);
         }
         base += 8*3;
         colorBase += 8*4;
@@ -180,7 +184,7 @@ class Graph3d {
             0, 0, unit,
         };
         System.arraycopy(axis, 0, vertices, base, 6*3);
-        for (int i = colorBase; i < colorBase+6*4; i+=4) {
+        for (int i = colorBase; i < colorBase+6*4; i+=4) { // x y z axis
             colors[i] = (byte) 255;
             colors[i+1] = (byte) 255;
             colors[i+2] = (byte) 255;

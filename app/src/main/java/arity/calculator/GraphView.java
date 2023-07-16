@@ -44,6 +44,7 @@ public class GraphView extends View implements
     private float lastTouchX, lastTouchY;
     private static float centerX=0;
     private static float centerY=0;
+    private Context context;
 
     public static void setCenterX(float centerX) {
         GraphView.centerX = centerX;
@@ -53,30 +54,38 @@ public class GraphView extends View implements
         GraphView.centerY = centerY;
     }
 
-    private static final int
-        COL_AXIS = 0xff00a000,
-        COL_GRID = 0xff004000,
-        COL_TEXT = 0xff00ff00;
+    private static int
+        COL_AXIS,
+        COL_GRID,
+        COL_TEXT,
+        COL_BACK;
 
-    private static final int COL_GRAPH[] = {0xffffffff, 0xff00ffff, 0xffffff00, 0xffff00ff, 0xff80ff80};
-
-    private static final int
-        COL_ZOOM = 0x40ffffff,
-        COL_ZOOM_TEXT1 = 0xd0ffffff,
-        COL_ZOOM_TEXT2 = 0x30ffffff;
+    private static int[] COL_GRAPH = new int[4];
 
     public GraphView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         init(context);
     }
 
     public GraphView(Context context) {
         super(context);
+        this.context = context;
         touchHandler = new TouchHandler(this);
         init(context);
     }
 
     private void init(Context context) {
+        COL_AXIS = Util.getThemeColor(context, com.google.android.material.R.attr.colorOnSurface);
+        COL_GRID = Util.getThemeColor(context, com.google.android.material.R.attr.colorOnSurface);
+        COL_TEXT = Util.getThemeColor(context, com.google.android.material.R.attr.colorOnSurface);
+        COL_BACK = Util.getThemeColor(context, com.google.android.material.R.attr.colorSurface);
+
+        COL_GRAPH[0] = Util.getThemeColor(context, com.google.android.material.R.attr.colorPrimary);
+        COL_GRAPH[1] = Util.getThemeColor(context, com.google.android.material.R.attr.colorSecondary);
+        COL_GRAPH[2] = Util.getThemeColor(context, com.google.android.material.R.attr.colorTertiary);
+        COL_GRAPH[3] = Util.getThemeColor(context, com.google.android.material.R.attr.colorPrimaryInverse);
+
         centerX=0;
         centerY=0;
         zoomController.setOnZoomListener(this);
@@ -405,7 +414,7 @@ public class GraphView extends View implements
             clearAllGraph();
         }
 
-        canvas.drawColor(0xff000000);
+        canvas.drawColor(COL_BACK);
                 
         paint.setStrokeWidth(0);
         paint.setAntiAlias(false);
@@ -437,14 +446,14 @@ public class GraphView extends View implements
         // Calculator.log("width " + gwidth + " step " + step);
         float v = ((int) (minX/step)) * step;
         textPaint.setColor(COL_TEXT);
-        textPaint.setTextSize(24);
+        textPaint.setTextSize(Util.scaledSize(context,16));
         textPaint.setTextAlign(Paint.Align.CENTER);
         float stepScale = step * scale;
         for (float x = (v - minX) * scale; x <= width; x += stepScale, v += step) {
             canvas.drawLine(x, 0, x, height, paint);
             if (!(-.001f < v && v < .001f)) {
                 StringBuilder b = format(v + centerX);
-                canvas.drawText(b, 0, b.length(), x, y2+24, textPaint);
+                canvas.drawText(b, 0, b.length(), x, y2+Util.scaledSize(context,16), textPaint);
             }
         }
         
