@@ -11,7 +11,6 @@ public class App extends Application {
   public void onCreate() {
     super.onCreate();
 
-    DynamicColors.applyToActivitiesIfAvailable(this);
     AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
 
   }

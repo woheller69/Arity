@@ -12,7 +12,7 @@
       android:requestLegacyExternalStorage="true">
 
     <activity android:name="Calculator"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppStarting"
         android:configChanges="orientation|keyboard|keyboardHidden"
         android:exported="true"
         android:windowSoftInputMode="stateHidden">

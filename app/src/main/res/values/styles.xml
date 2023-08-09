@@ -4,4 +4,10 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/holo_orange_dark</item>
     </style>
+
+    <style name="AppStarting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
 </resources>

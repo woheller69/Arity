@@ -6,12 +6,10 @@ import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
-import android.text.Layout;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.AdapterView;
 import android.text.TextWatcher;
 import android.text.Editable;
 import android.view.KeyEvent;
@@ -26,6 +24,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
+
+import com.google.android.material.color.DynamicColors;
 
 import java.util.ArrayList;
 
@@ -151,6 +152,10 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        SplashScreen.installSplashScreen(this);
+        DynamicColors.applyToActivityIfAvailable(this);
+        DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
+        getWindow().setStatusBarColor(arity.calculator.Util.getThemeColor(this, androidx.appcompat.R.attr.colorPrimaryDark));
         super.onCreate(savedInstanceState);
         history = new History(this);
         adapter = new HistoryAdapter(this, history);
