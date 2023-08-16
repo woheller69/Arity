@@ -35,7 +35,13 @@ class Defs extends FileHandler {
 	    String line = is.readUTF();
 	    lines.add(line);
 	    try {
-		symbols.define(symbols.compileWithName(line));
+            FunctionAndName fan = symbols.compileWithName(line);
+                symbols.define(fan);
+                Function f = fan.function;
+                int arity = f.arity();
+                if (arity == 0) {
+                    symbols.define(fan.name, f.evalComplex());
+                }
 	    } catch (SyntaxException e) {
 		// ignore
 	    }
