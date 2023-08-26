@@ -2,6 +2,7 @@
 
 package arity.calculator;
 
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.view.MotionEvent;
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
 import android.util.AttributeSet;
+import androidx.core.content.ContextCompat;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -105,15 +107,15 @@ public class KeyboardView extends View {
 
                 switch (c) {
                 case 'E':
-                    drawDrawable(canvas, R.drawable.ic_keyboard_return, x1, y1, cw, ch);
+                    drawDrawable(calculator, canvas, Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnPrimary), R.drawable.ic_keyboard_return, x1, y1, cw, ch);
                     break;
 
                 case 'C':
-                    drawDrawable(canvas, R.drawable.ic_backspace, x1, y1, cw, ch);
+                    drawDrawable(calculator, canvas, Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnPrimary), R.drawable.ic_backspace, x1, y1, cw, ch);
                     break;
 
                 case Calculator.ARROW:
-                    drawDrawable(canvas, R.drawable.ic_unfold_more, x1, y1, cw, ch);
+                    drawDrawable(calculator, canvas, Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnPrimary), R.drawable.ic_unfold_more, x1, y1, cw, ch);
                     break;
 
                 default:
@@ -124,8 +126,9 @@ public class KeyboardView extends View {
 
     }
 
-    private void drawDrawable(Canvas canvas, int id, float x, float y, float cw, float ch) {
-        Drawable d = calculator.getResources().getDrawable(id);
+    private void drawDrawable(Context context, Canvas canvas, int color, int id, float x, float y, float cw, float ch) {
+        Drawable d = ContextCompat.getDrawable(context, id);
+        d.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
         int iw = d.getIntrinsicWidth();
         int ih = d.getIntrinsicHeight();
         int x1 = Math.round(x + (cw - iw)/2.f);

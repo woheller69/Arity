@@ -3,6 +3,7 @@
     <style name="AppTheme" parent="Theme.Material3.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="colorOnPrimary">@android:color/black</item>
     </style>
 
     <style name="AppStarting" parent="Theme.SplashScreen">
