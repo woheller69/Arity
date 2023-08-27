@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">ᱴᱷᱤᱠ</string>
+    <string name="dialog_NO_button">ᱵᱟᱝ</string>
+    <string name="dialog_Later_button">ᱛᱟᱭᱚᱢ ᱛᱮ</string>
+    <string name="dialog_StarOnGitHub">ᱱᱚᱶᱟ ᱮᱯ ᱠᱩᱥᱤᱭᱟᱫᱟᱢ ᱥᱮ? ᱫᱟᱭᱟᱠᱟᱛᱮ GitHub ᱨᱮ ᱪᱤᱱᱦᱟᱹ ᱠᱟ ᱞᱮᱢ ᱥᱮ PayPal ᱛᱮ ᱰᱮᱵᱷᱞᱚᱯᱚᱨ ᱫᱟᱱ ᱟᱭ ᱢᱮ</string>
+    <string name="help_file">help.html</string>
+    <string name="menu_clear_user_definitions">ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱰᱮᱯᱷᱤᱱᱮᱥᱚᱱ ᱠᱚ ᱢᱮᱴᱟᱣ ᱢᱮ</string>
+    <string name="menu_capture_screenshot">ᱥᱠᱨᱤᱱᱥᱚᱴ ᱤᱫᱤ ᱢᱮ</string>
+    <string name="menu_set_center">ᱛᱟᱞᱟ ᱥᱮᱴ ᱢᱮ</string>
+    <string name="menu_user_definitions">ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱰᱮᱯᱷᱤᱱᱮᱥᱚᱱ</string>
+    <string name="menu_clear_history">ᱱᱟᱜᱟᱢ ᱢᱮᱴᱟᱣ ᱢᱮ</string>
+    <string name="menu_settings">ᱥᱟᱡᱟᱣᱠᱚ</string>
+    <string name="menu_help">ᱜᱚᱲᱚ</string>
+    <string name="menu_about">ᱵᱟᱵᱚᱛ</string>
+    <string name="dialog_set_center">ᱛᱟᱞᱟ ᱠᱚᱰᱤᱱᱮᱴ ᱥᱮᱴ ᱢᱮ</string>
+    <string name="screenshot_saved">ᱞᱮᱠᱷᱟ ᱥᱠᱨᱤᱱᱥᱚᱴ ᱥᱟᱧᱪᱟᱣ ᱢᱮ</string>
+    <string name="function">ᱯᱷᱚᱝᱥᱚᱱ</string>
+    <string name="shading3D">3D ᱥᱮᱰᱤᱝ</string>
+    <string name="resolution3D">3D ᱨᱤᱡᱚᱞᱭᱩᱥᱚᱱ</string>
+    <string name="shading_value_smooth">ᱪᱤᱠᱱᱟ</string>
+    <string name="shading_value_flat">ᱪᱚᱯᱴᱟ</string>
+    <string name="shading_entry_smooth">ᱪᱤᱠᱱᱟ, ᱵᱟᱹᱭ</string>
+    <string name="shading_entry_flat">ᱪᱚᱯᱴᱟ, ᱞᱚᱜᱚᱱ</string>
+</resources>
