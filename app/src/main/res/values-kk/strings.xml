@@ -4,7 +4,6 @@
     <string name="dialog_NO_button">Жоқ</string>
     <string name="dialog_Later_button">Кейін көремін</string>
     <string name="dialog_StarOnGitHub">Бұл қосымша сізге ұнай ма? Ұнаса, жобаның GitHub бетінде жұлдыз бассаңыз немесе әзірлеушіні PayPal арқылы қолдасаңыз болады.</string>
-    <string name="help_file">help-kk.html</string>
     <string name="menu_clear_user_definitions">Қолданушы белгілеулерін тазарту</string>
     <string name="menu_capture_screenshot">Скриншот түсіру</string>
     <string name="menu_set_center">Ортасын орнату</string>
