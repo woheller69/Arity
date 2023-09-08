@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">OK</string>
+    <string name="dialog_NO_button">No</string>
+    <string name="dialog_Later_button">Maybe later</string>
+    <string name="dialog_StarOnGitHub">Do you like this app? Please give a star on GitHub or buy the developer a coffee via PayPal.</string>
+    <string name="menu_clear_user_definitions">Clear user definitions</string>
+    <string name="menu_capture_screenshot">Capture screenshot</string>
+    <string name="menu_set_center">Set center</string>
+    <string name="menu_user_definitions">User definitions</string>
+    <string name="menu_clear_history">Clear history</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="dialog_set_center">Set center coordinates</string>
+    <string name="screenshot_saved">Screenshot saved as</string>
+    <string name="function">function</string>
+    <string name="shading3D">3D Shading</string>
+    <string name="resolution3D">3D Resolution</string>
+    <string name="shading_value_smooth">smooth</string>
+    <string name="shading_value_flat">flat</string>
+    <string name="shading_entry_smooth">Smooth, slower</string>
+    <string name="shading_entry_flat">Flat, faster</string>
+</resources>
