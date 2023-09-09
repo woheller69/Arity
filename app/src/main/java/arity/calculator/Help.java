@@ -2,7 +2,6 @@
 
 package arity.calculator;
 
-import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -11,10 +10,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
-
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class Help extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
@@ -27,26 +22,9 @@ public class Help extends AppCompatActivity {
             }
         }
 
-        String filename = "help-en.html";
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            String language = null;
-            language = getResources().getConfiguration().getLocales().get(0).getLanguage();
-            filename = "help-"+language+".html";
-
-            AssetManager am = getAssets();
-            try {
-                List<String> mapList = Arrays.asList(am.list("help"));
-
-                if (!mapList.contains(filename)) {
-                    filename = "help-en.html";
-                }
-            } catch ( IOException ex){
-                ex.printStackTrace();
-            }
-        }
-
-        view.loadUrl("file:///android_asset/"+ filename);
+        String language = null;
+        language = getResources().getString(R.string.help_file);
+        view.loadUrl("file:///android_asset/"+ language);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
