@@ -4,6 +4,7 @@
     <string name="dialog_NO_button">Ні</string>
     <string name="dialog_Later_button">Можливо потім</string>
     <string name="dialog_StarOnGitHub">Подобається застосунок? Поставте зірочку на Github або придбайте розробнику каву через PayPal</string>
+    <string name="help_file">help-uk.html</string>
     <string name="menu_clear_user_definitions">Очистити означення користувача</string>
     <string name="menu_capture_screenshot">Зробити знімок екрану</string>
     <string name="menu_set_center">Встановити центр</string>
