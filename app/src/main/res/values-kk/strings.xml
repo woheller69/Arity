@@ -11,6 +11,7 @@
     <string name="menu_clear_history">Тарихты тазарту</string>
     <string name="menu_settings">Баптаулар</string>
     <string name="menu_help">Көмек</string>
+    <string name="help_file">help-kk.html</string>
     <string name="menu_about">Arity туралы</string>
     <string name="dialog_set_center">Ортасының координаттарын орнату</string>
     <string name="screenshot_saved">Скриншот мына жерге сақталды:</string>
