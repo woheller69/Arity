@@ -11,7 +11,6 @@
     <string name="menu_clear_history">Очистити історію</string>
     <string name="menu_settings">Налаштування</string>
     <string name="menu_help">Допомога</string>
-    <string name="help_file">help-uk.html</string>
     <string name="menu_about">Про застосунок</string>
     <string name="dialog_set_center">Встановити координати центру</string>
     <string name="screenshot_saved">Знімок збережено як</string>

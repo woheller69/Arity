@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">TAMAM</string>
+    <string name="dialog_NO_button">Hayır</string>
+    <string name="dialog_Later_button">Belki sonra</string>
+    <string name="dialog_StarOnGitHub">Bu uygulamayı beğendiniz mi? Lütfen GitHub\'da bir yıldız verin veya geliştiriciye PayPal ile bir kahve ısmarlayın.</string>
+    <string name="menu_clear_user_definitions">Kullanıcı tanımlarını temizle</string>
+    <string name="menu_capture_screenshot">Ekran görüntüsü yakala</string>
+    <string name="menu_set_center">Merkezi ayarla</string>
+    <string name="menu_user_definitions">Kullanıcı tanımları</string>
+    <string name="menu_clear_history">Geçmişi temizle</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="menu_help">Yardım</string>
+    <string name="menu_about">Hakkında</string>
+    <string name="dialog_set_center">Merkez koordinatlarını ayarla</string>
+    <string name="screenshot_saved">Ekran görüntüsü şu şekilde kaydedildi</string>
+    <string name="function">fonksiyon</string>
+    <string name="shading3D">3D Gölgelendirme</string>
+    <string name="resolution3D">3D Çözünürlük</string>
+    <string name="shading_value_smooth">pürüzsüz</string>
+    <string name="shading_value_flat">düz</string>
+    <string name="shading_entry_smooth">Pürüzsüz, daha yavaş</string>
+    <string name="shading_entry_flat">Düz, daha hızlı</string>
+</resources>
