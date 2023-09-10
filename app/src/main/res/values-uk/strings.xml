@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">Добре</string>
+    <string name="dialog_NO_button">Ні</string>
+    <string name="dialog_Later_button">Можливо потім</string>
+    <string name="dialog_StarOnGitHub">Подобається застосунок? Поставте зірочку на Github або придбайте розробнику каву через PayPal</string>
+    <string name="menu_clear_user_definitions">Очистити означення користувача</string>
+    <string name="menu_capture_screenshot">Зробити знімок екрану</string>
+    <string name="menu_set_center">Встановити центр</string>
+    <string name="menu_user_definitions">Означення користувача</string>
+    <string name="menu_clear_history">Очистити історію</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="menu_help">Допомога</string>
+    <string name="help_file">help-uk.html</string>
+    <string name="menu_about">Про застосунок</string>
+    <string name="dialog_set_center">Встановити координати центру</string>
+    <string name="screenshot_saved">Знімок збережено як</string>
+    <string name="function">функція</string>
+    <string name="shading3D">Шейдинг 3D</string>
+    <string name="resolution3D">Роздільна здатність 3D</string>
+    <string name="shading_value_smooth">гладко</string>
+    <string name="shading_value_flat">плоско</string>
+    <string name="shading_entry_smooth">Гладко, повільно</string>
+    <string name="shading_entry_flat">Плоско, швидко</string>
+</resources>
