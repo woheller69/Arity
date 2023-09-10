@@ -36,7 +36,7 @@ public class Help extends AppCompatActivity {
 
             AssetManager am = getAssets();
             try {
-                List<String> mapList = Arrays.asList(am.list("help"));
+                List<String> mapList = Arrays.asList(am.list(""));
 
                 if (!mapList.contains(filename)) {
                     filename = "help-en.html";
