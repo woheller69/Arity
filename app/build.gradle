@@ -9,8 +9,8 @@ android {
         applicationId "org.woheller69.arity"
         minSdk 21
         targetSdk 33
-        versionCode 48
-        versionName "1.48"
+        versionCode 50
+        versionName "1.50"
     }
 
     buildTypes {

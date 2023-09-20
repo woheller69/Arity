@@ -1,0 +1,4 @@
+Add Santali translation
+Add Ukrainian translation
+Add Turkish translation (partly)
+Allow copying calculation result
