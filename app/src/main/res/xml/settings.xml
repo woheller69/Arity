@@ -15,4 +15,11 @@
         android:entries="@array/resolution_entries"
         android:entryValues="@array/resolution_values"
         />
+    <SwitchPreference
+        android:key="dyn_colors"
+        android:title="@string/dyn_col"
+        android:defaultValue="true"
+        android:summary="Android 12+"
+        />
+
 </PreferenceScreen>

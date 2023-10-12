@@ -2,7 +2,11 @@
 
 package arity.calculator;
 
+import static android.content.Context.VIBRATOR_SERVICE;
 import android.graphics.PorterDuff;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.MotionEvent;
 import android.content.Context;
@@ -35,6 +39,7 @@ public class KeyboardView extends View {
     private boolean isLarge, isBottom;
     private TimerTask timerTask;
     private Timer repeat;
+    private Vibrator vibrator;
 
     public KeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -42,6 +47,7 @@ public class KeyboardView extends View {
         downPaint.setAntiAlias(false);
         downPaint.setColor(Util.getThemeColor(calculator, com.google.android.material.R.attr.colorOnSurface));
         downPaint.setStyle(Paint.Style.STROKE);
+        vibrator = (Vibrator) calculator.getSystemService(VIBRATOR_SERVICE);
     }
     
     void init(char[][] keys, boolean isLarge, boolean isBottom) {
@@ -183,6 +189,15 @@ public class KeyboardView extends View {
 
     private static final float DELTAY = 8;
     public boolean onTouchEvent(MotionEvent event) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK));
+            } else {
+                vibrator.vibrate(10); //haptic feedback
+            }
+        }
+
         int action = event.getAction();
         if (action == MotionEvent.ACTION_DOWN) {
             downX = event.getX();

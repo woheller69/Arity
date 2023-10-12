@@ -152,9 +152,12 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SplashScreen.installSplashScreen(this);
-        DynamicColors.applyToActivityIfAvailable(this);
-        DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
+        if (prefs.getBoolean("dyn_colors",true)) {
+            DynamicColors.applyToActivityIfAvailable(this);
+            DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
+        }
         getWindow().setStatusBarColor(arity.calculator.Util.getThemeColor(this, androidx.appcompat.R.attr.colorPrimaryDark));
         super.onCreate(savedInstanceState);
         history = new History(this);
@@ -177,7 +180,6 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
 	    }
 	    nDigits = 0;
 	}
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
         String value = prefs.getString("3d_shading", "smooth");
         useSmoothShading3D = value.equals("smooth");

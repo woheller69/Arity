@@ -21,4 +21,5 @@
     <string name="shading_value_flat">плоско</string>
     <string name="shading_entry_smooth">Гладко, повільно</string>
     <string name="shading_entry_flat">Плоско, швидко</string>
+    <string name="dyn_col">Динамічні кольори</string>
 </resources>
