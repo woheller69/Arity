@@ -218,7 +218,7 @@ public class KeyboardView extends View {
                     timerTask = new TimerTask() {
                         @Override
                         public void run() {
-                            calculator.onKey(key); //Repeate backspace if pressed long
+                            calculator.onKey(key); //Repeat backspace if pressed long
                             vibrate();
                         }
                     };
