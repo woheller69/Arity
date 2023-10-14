@@ -190,14 +190,6 @@ public class KeyboardView extends View {
     private static final float DELTAY = 8;
     public boolean onTouchEvent(MotionEvent event) {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
-            } else {
-                vibrator.vibrate(10); //haptic feedback
-            }
-        }
-
         int action = event.getAction();
         if (action == MotionEvent.ACTION_DOWN) {
             downX = event.getX();
@@ -219,6 +211,7 @@ public class KeyboardView extends View {
                 invalidateCell(downLine, downCol);
                 char key = keys[downLine][downCol];
                 calculator.onKey(key);
+                vibrate();
 
                 if (key=='C'){
                     repeat = new Timer();
@@ -226,6 +219,7 @@ public class KeyboardView extends View {
                         @Override
                         public void run() {
                             calculator.onKey(key); //Repeate backspace if pressed long
+                            vibrate();
                         }
                     };
                     repeat.schedule(timerTask, 500,100);
@@ -243,7 +237,17 @@ public class KeyboardView extends View {
             return false;
         }
         return true;
-    }   
+    }
+
+    private void vibrate() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+            } else {
+                vibrator.vibrate(10); //haptic feedback
+            }
+        }
+    }
 
     private void invalidateCell(int line, int col) {
         float x1 = getX(col);
