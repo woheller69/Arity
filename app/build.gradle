@@ -31,7 +31,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'com.google.android.material:material:1.9.0'
     //implementation 'com.xlythe:arity:2.1.7'
-    implementation 'com.github.woheller69:ArityEngine:c31c8823f0'
+    implementation 'com.github.woheller69:ArityEngine:fab02d62e3'
     //implementation project(path: ':arity')
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1' //needed due to duplicate class error
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1' //needed due to duplicate class error
