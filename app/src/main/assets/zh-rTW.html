@@ -1,0 +1,121 @@
+<html>
+<body>
+<h2>簡單表達式</h2>
+<ul>
+<li>簡單表達式：<em>1+2</em>
+<li>變數求值：<em>pi</em>
+<li>函數求值：<em>sin(0)</em>
+<li>變數定義：<em>a=3.5</em>
+<li>函數定義：<em>f(x)=x^2-1</em>
+<li>括號：<em>(1-x)^2</em>
+</ul>
+
+要輸入一個包含字母的表達式，例如 <em>sin(x)</em>，在基本鍵盤上使用 &#x21f3; 按鈕。它可以切換開啟/關閉文字鍵盤。
+
+<h2>預定義函數</h2>
+
+<h3>對數與冪</h3>
+<ul>
+<li>sqrt(x)：平方根；x^0.5
+<li>cbrt(x)：立方根；x^(1/3)
+<li>exp(x)：指數； e^x
+<li>log(x)、ln(x)：自然對數
+<li>log2(x)、lb(x)：二進位制對數
+<li>log10(x)、lg(x)：十進位制對數
+<li>log(base,x)：任意底數的對數
+</ul>
+
+<h3>三角函數 - 弧度</h3>
+<ul>
+<li>sin(x)、cos(x)、tan(x)</li>
+<li>asin(x)、acos(x)、atan(x)</li>
+</ul>
+
+<h3>三角函數 - 度數</h3>
+<ul>
+<li>sind(x)、cosd(x)、tand(x)</li>
+<li>asind(x)、acosd(x)、atand(x)</li>
+</ul>
+
+<h3>雙曲線</h3>
+<ul>
+<li>sinh(x)、cosh(x)、tanh(x)</li>
+<li>asinh(x)、acosh(x)、atanh(x)</li>
+</ul>
+
+<h3>其他</h3>
+<ul>
+<li>gcd(x,y)：最大公因數
+<li>comb(n,k)：組合
+<li>perm(n,k)：排列
+<li>min(x,y)、max(x,y)
+<li>floor(x)、ceil(x)
+<li>abs(x)：絕對值
+<li>sign(x)：正負號
+<li>rnd()：隨機數值，範圍 [0,1]
+<li>rnd(max)：隨機數值，範圍 [0, max]
+<li>gamma(x)：(x-1)!
+<li>mod(x,y)：模數
+</ul>
+
+<h2>複數</h2>
+<em>i</em> 或 <em>j</em> 是複數的基。例如：
+<ul>
+<li>i*i
+<li>(1+i)^2
+<li>e^(i*pi)
+</ul>
+
+<h2>運算子</h2>
+<ul>
+<li><em>+ - &#x00d7; &#x00f7;</em> 基本算術
+<li><em>^</em> 冪
+<li><em>%</em> 百分比
+<li><em>!</em> 階乘
+<li><em>#</em> 模數
+<li><em>&#x221a;</em> 平方根
+<li><em>'</em> 一階導數
+</ul>
+
+<h2>提示</h2>
+<ul>
+<li>括號：您可以省略頭端或末端括號，例如 <em>1+2)(3+4</em> 是有效的。
+<li>乘法：當明確時，您可以省略乘法運算子，例如 <em>3&#x03c0;+2(1+2)</em> 
+<li>表達式延續：使用一個運算子（除了 <em>-</em>）開始一個新的表達式並在前方插入 <em>ans</em>，
+即最後一個表達式的結果。
+<li>清除：使用 <em>Enter</em> 按鈕以快速清除整個輸入欄位。
+<li>科學記號：<em>1e3</em> 為 1000。
+<li>以度而非弧度為角度單位：使用 <em>sind(90)</em> 或 <em>sin(90deg)</em>。
+<li>使用上/下滑動手勢以瀏覽歷史紀錄。
+<li>刪除單一歷史紀錄項目：長按一個項目。
+</ul>
+
+<h2>導數</h2>
+可以使用質數記號的一個參數計算某一函數的一階導數：
+<em>log'(5)</em>。
+<p>
+質數記號（引號）必須緊接在函數名稱之後出現，
+並且必須緊接左括號。
+<p>
+可以繪製導數，例如 <em>sqrt'(x)</em>。
+<p>
+要計算一個表達式的一階導函數，您必須定義表達式為一個命名的函數：
+例如 <em>f(x)=x^3+x^2+1</em>，再接著 <em>f'(x)</em>。
+
+<h2>多重繪製</h2>
+要在同一個 2D 圖表中繪製多個函數，僅需將它們輸入在同一行並使用 ";" 分隔。
+例如 <em>x;x^2;2</em>
+
+<h2>進位制</h2>
+您可以分別通過 <em>0b</em>、<em>0o</em> 或 <em>0x</em> 前置詞以輸入二進位、八進位或十六進位值，例如：
+<ul>
+<li>二進位：0b1010
+<li>八進位：0o17
+<li>十六進位：0x100
+</ul>
+目前無法進行反向操作，亦即，以非十進制顯示結果。
+
+<h2>關於</h2>
+Arity Calculator 由 Mihai Preda 撰寫，並且為開放原始碼。它使用 "Arity" 運算程式館。 Enjoy!
+</body>
+</html>

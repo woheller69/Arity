@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">是</string>
+    <string name="dialog_NO_button">否</string>
+    <string name="dialog_Later_button">稍後再說</string>
+    <string name="dialog_StarOnGitHub">您是否喜歡此應用程式？請在 GitHub 給個星或通過 PayPal 給開發者買杯咖啡。</string>
+    <string name="menu_clear_user_definitions">清除使用者定義</string>
+    <string name="menu_capture_screenshot">擷取螢幕畫面</string>
+    <string name="menu_set_center">設定中心</string>
+    <string name="menu_user_definitions">使用者定義</string>
+    <string name="menu_clear_history">清除歷史紀錄</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_help">說明</string>
+    <string name="menu_about">關於</string>
+    <string name="dialog_set_center">設定中心座標</string>
+    <string name="screenshot_saved">螢幕截圖儲存為</string>
+    <string name="function">函數</string>
+    <string name="shading3D">3D 著色</string>
+    <string name="resolution3D">3D 解析度</string>
+    <string name="shading_value_smooth">平滑</string>
+    <string name="shading_value_flat">平面</string>
+    <string name="shading_entry_smooth">平滑，比較慢</string>
+    <string name="shading_entry_flat">平面，比較快</string>
+    <string name="dyn_col">動態色彩</string>
+</resources>
