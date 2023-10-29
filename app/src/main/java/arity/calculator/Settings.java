@@ -1,44 +1,49 @@
 package arity.calculator;
 
-import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.settings, new SettingsFragment())
+                    .commit();
+        }
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-        Context context;
-        Intent intent;
-        public SettingsFragment(Context context, Intent intent){
-            this.context = context;
-            this.intent = intent;
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        if (s.equals("dyn_colors")) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(() -> Runtime.getRuntime().exit(0), 500);
         }
+    }
+
+    public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.settings, rootKey);
-            // Get list of default sources
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment(this, getIntent()))
-                .commit();
+        PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext()).registerOnSharedPreferenceChangeListener(this);
     }
 }

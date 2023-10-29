@@ -3,6 +3,10 @@
     <style name="AppTheme" parent="Theme.Material3.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorPrimaryInverse">@color/colorPrimaryInverse</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnPrimary">@android:color/black</item>
     </style>
 
@@ -10,5 +14,10 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
+
+    <color name="colorSecondary">#ff00ffff</color>
+    <color name="colorTertiary">#ffffff00</color>
+    <color name="colorPrimaryInverse">#ffff00ff</color>
+    <color name="colorSecondaryVariant">#ff80ff80</color>
 
 </resources>

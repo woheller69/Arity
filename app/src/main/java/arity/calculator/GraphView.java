@@ -60,7 +60,7 @@ public class GraphView extends View implements
         COL_TEXT,
         COL_BACK;
 
-    private static int[] COL_GRAPH = new int[4];
+    private static int[] COL_GRAPH = new int[5];
 
     public GraphView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -85,6 +85,7 @@ public class GraphView extends View implements
         COL_GRAPH[1] = Util.getThemeColor(context, com.google.android.material.R.attr.colorSecondary);
         COL_GRAPH[2] = Util.getThemeColor(context, com.google.android.material.R.attr.colorTertiary);
         COL_GRAPH[3] = Util.getThemeColor(context, com.google.android.material.R.attr.colorPrimaryInverse);
+        COL_GRAPH[4] = Util.getThemeColor(context, com.google.android.material.R.attr.colorSecondaryVariant);
 
         centerX=0;
         centerY=0;
@@ -442,6 +443,7 @@ public class GraphView extends View implements
         final float tickSize = 5;
         final float y2 = y0 + tickSize;
         paint.setColor(COL_GRID);
+        paint.setAlpha(127);
         float step = stepFactor(gwidth);
         // Calculator.log("width " + gwidth + " step " + step);
         float v = ((int) (minX/step)) * step;
@@ -464,11 +466,12 @@ public class GraphView extends View implements
             canvas.drawLine(0, y, width, y, paint);
             if (!(-.001f < v && v < .001f)) {
                 StringBuilder b = format(v + centerY);
-                canvas.drawText(b, 0, b.length(), x1, y+4, textPaint);
+                canvas.drawText(b, 0, b.length(), x1-4, y+4, textPaint);
             }
         }
 
         paint.setColor(COL_AXIS);
+        paint.setStrokeWidth(5);
         if (drawYAxis) {
             canvas.drawLine(x0, 0, x0, height, paint);
         }
@@ -479,7 +482,7 @@ public class GraphView extends View implements
         matrix.postScale(scale, -scale);
         matrix.postTranslate(width/2, height/2);
 
-        paint.setStrokeWidth(0);
+        paint.setStrokeWidth(2);
         paint.setAntiAlias(false);
 
         int n = Math.min(funcs.size(), GRAPHS_SIZE);
