@@ -7,6 +7,8 @@ import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.os.VibratorManager;
+import android.provider.Settings;
 import android.view.View;
 import android.view.MotionEvent;
 import android.content.Context;
@@ -240,11 +242,13 @@ public class KeyboardView extends View {
     }
 
     private void vibrate() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
-            } else {
-                vibrator.vibrate(10); //haptic feedback
+        if (hapticEnabled()){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+                } else {
+                    vibrator.vibrate(10); //haptic feedback
+                }
             }
         }
     }
@@ -256,6 +260,15 @@ public class KeyboardView extends View {
         int y2 = (int)(y1+downCH+1);
         invalidate((int)x1, (int)y1, x2, y2);
         // log("invalidate " + x + ' '  + y + ' ' + ((int)x1) + ' ' + ((int)y1) + ' ' + x2 + ' ' + y2);
+    }
+
+    private boolean hapticEnabled(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            VibratorManager vibratorManager = (VibratorManager) calculator.getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
+            return vibratorManager.getDefaultVibrator().hasVibrator();
+        } else {
+            return Settings.System.getInt(calculator.getContentResolver(), Settings.System.HAPTIC_FEEDBACK_ENABLED, 0) == 1;
+        }
     }
 
 }
