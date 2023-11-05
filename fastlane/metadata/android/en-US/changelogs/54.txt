@@ -1,0 +1,3 @@
+Improved orange color scheme
+Haptic feedback applies system setting
+Chinese translation
