@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">OK</string>
+    <string name="dialog_NO_button">Нет</string>
+    <string name="dialog_Later_button">Может быть позже</string>
+    <string name="dialog_StarOnGitHub">Вам нравится это приложение? Пожалуйста, поставьте звёздочку на GitHub или купите разработчику кофе через PayPal</string>
+    <string name="menu_clear_user_definitions">Очистить пользовательские определения</string>
+    <string name="menu_capture_screenshot">Снять скриншот</string>
+    <string name="menu_set_center">Установить центр</string>
+    <string name="menu_user_definitions">Пользовательские определения</string>
+    <string name="menu_clear_history">Очистить историю</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_help">Помощь</string>
+    <string name="menu_about">О приложении</string>
+    <string name="dialog_set_center">Установить координаты центра</string>
+    <string name="screenshot_saved">Скриншот сохранен как</string>
+    <string name="function">функция</string>
+    <string name="shading3D">Шейдинг 3D</string>
+    <string name="resolution3D">Разрешительная способность 3D</string>
+    <string name="shading_value_smooth">гладко</string>
+    <string name="shading_value_flat">плоско</string>
+    <string name="shading_entry_smooth">Гладко, медленнее</string>
+    <string name="shading_entry_flat">Плоско, быстрее</string>
+    <string name="dyn_col">Динамические цвета</string>
+</resources>
