@@ -1,0 +1,2 @@
+Update for Android 14 (SDK34)
+Translations for Russian, Ukrainian, Traditional Chinese

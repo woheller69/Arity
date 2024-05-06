@@ -3,14 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "org.woheller69.arity"
         minSdk 21
-        targetSdk 33
-        versionCode 54
-        versionName "1.54"
+        targetSdk 34
+        versionCode 155
+        versionName "1.55"
     }
 
     buildTypes {
