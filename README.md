@@ -32,6 +32,9 @@ Scientific calculator with complex numbers and graphing of user-defined function
 alt="Get it on F-Droid"
 height="80">](https://f-droid.org/packages/org.woheller69.arity/)
 
+## Contribute
+For translations use https://toolate.othing.xyz/projects/arity/
+
 ## License
 
 This is an updated (Android 12, SDK 32) fork of 
