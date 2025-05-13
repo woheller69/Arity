@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_OK_button">موافق</string>
+    <string name="dialog_NO_button">لا</string>
+    <string name="dialog_Later_button">ربما لاحقاً</string>
+    <string name="dialog_StarOnGitHub">هل أعجبك هذا التطبيق؟ الرجاء منح نجمة على GitHub أو شراء قهوة للمطور عبر PayPal.</string>
+    <string name="menu_clear_user_definitions">مسح تعريفات المستخدم</string>
+    <string name="menu_capture_screenshot">التقاط لقطة شاشة</string>
+    <string name="menu_set_center">تعيين المركز</string>
+    <string name="menu_user_definitions">تعريفات المستخدم</string>
+    <string name="menu_clear_history">مسح السجل</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="menu_help">المساعدة</string>
+    <string name="menu_about">حول</string>
+    <string name="dialog_set_center">تعيين إحداثيات المركز</string>
+    <string name="screenshot_saved">تم حفظ لقطة الشاشة باسم</string>
+    <string name="function">وظيفة</string>
+    <string name="shading3D">تظليل ثلاثي الأبعاد</string>
+    <string name="resolution3D">دقة ثلاثية الأبعاد</string>
+    <string name="shading_value_smooth">ناعم</string>
+    <string name="shading_value_flat">مسطح</string>
+    <string name="shading_entry_smooth">ناعم، أبطأ</string>
+    <string name="shading_entry_flat">مسطح، أسرع</string>
+    <string name="dyn_col">ألوان ديناميكية</string>
+</resources>
