@@ -4,8 +4,10 @@ package arity.calculator;
 
 import android.annotation.SuppressLint;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -158,8 +160,29 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
             DynamicColors.applyToActivityIfAvailable(this);
             DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
         }
-        getWindow().setStatusBarColor(arity.calculator.Util.getThemeColor(this, androidx.appcompat.R.attr.colorPrimaryDark));
+        getWindow().setStatusBarColor(arity.calculator.Util.getThemeColor(this, R.attr.colorPrimaryDark));
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            boolean isDarkMode = (nightModeFlags == Configuration.UI_MODE_NIGHT_YES);
+            WindowInsetsController insetsController = getWindow().getInsetsController();
+            if (insetsController != null) {
+                if (isDarkMode) {
+                    // Dark mode: remove light status bar appearance (use light icons)
+                    insetsController.setSystemBarsAppearance(
+                            0,
+                            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                    );
+                } else {
+                    // Light mode: enable light status bar appearance (dark icons)
+                    insetsController.setSystemBarsAppearance(
+                            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                    );
+                }
+            }
+        }
+
         history = new History(this);
         adapter = new HistoryAdapter(this, history);
         internalConfigChange(getResources().getConfiguration());
@@ -217,40 +240,27 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-	super.onOptionsItemSelected(item);
-	int id = item.getItemId();
-	switch (id) {
-	case R.id.list_defs: {
-	    startActivity(new Intent(this, ListDefs.class));
-	    break;
-	}
-
-        case R.id.help:
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.list_defs) {
+            startActivity(new Intent(this, ListDefs.class));
+        } else if (id == R.id.help) {
             startActivity(new Intent(this, Help.class));
-            break;
-
-        case R.id.clear_history:
+        } else if (id == R.id.clear_history) {
             history.clear();
             history.save();
             adapter.notifyDataSetInvalidated();
-            break;
-
-        case R.id.clear_defs:
+        } else if (id == R.id.clear_defs) {
             defs.clear();
             defs.save();
-            break;
-
-        case R.id.settings:
+        } else if (id == R.id.settings) {
             startActivity(new Intent(this, Settings.class));
-            break;
-        case R.id.about:
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/Arity")));
-            break;
-
-	default:
-	    return false;
-	}
-	return true;
+        } else if (id == R.id.about) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/Arity ")));
+        } else {
+            return false;
+        }
+        return true;
     }
 
     //OnSharedPreferenceChangeListener
