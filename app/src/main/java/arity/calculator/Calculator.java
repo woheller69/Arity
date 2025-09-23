@@ -24,7 +24,7 @@ import android.content.res.Configuration;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
+import org.woheller69.freeDroidWarn.FreeDroidWarn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
 
@@ -208,6 +208,7 @@ public class Calculator extends AppCompatActivity implements TextWatcher,
         useSmoothShading3D = value.equals("smooth");
         resolution3D = Integer.parseInt(prefs.getString("3d_resolution","144"));
 
+        FreeDroidWarn.showWarningOnUpgrade(this, BuildConfig.VERSION_CODE);
         if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this,"https://github.com/woheller69/Arity");
     }
     
