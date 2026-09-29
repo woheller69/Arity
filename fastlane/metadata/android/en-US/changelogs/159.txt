@@ -1,0 +1,1 @@
+Fix atanh, asinh, acosh for small values
